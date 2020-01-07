@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
 
@@ -160,3 +161,6 @@ class EmployeePayroll:
         self.net_salary = net_sal
         return net_sal
 
+
+def index(request):
+    return HttpResponse("Welcome to payroll")
