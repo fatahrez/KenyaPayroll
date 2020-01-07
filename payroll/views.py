@@ -9,8 +9,8 @@ class EmployeePayroll:
     nssf_deduction = 0
     nhif_deduction = 0
     payee = 0
-    personal_relief = 0
-    total_tax = 0
+    personal_relief = 1408
+    total_tax_payable = 0
     net_salary = 0
 
     def __init__(self, basic_salary):
@@ -150,5 +150,13 @@ class EmployeePayroll:
             self.payee = tax
             return tax
 
+    def calculate_tax_payable(self):
+        tax_payable = self.payee - self.personal_relief
+        self.total_tax_payable = tax_payable
+        return tax_payable
+
     def calculate_net_salary(self):
-        pass
+        net_sal = self.taxable_income - (self.nhif_deduction + self.total_tax_payable)
+        self.net_salary = net_sal
+        return net_sal
+
