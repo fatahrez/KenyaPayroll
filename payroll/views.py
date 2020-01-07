@@ -1,7 +1,8 @@
 from django.shortcuts import render
 
+
 # Create your views here.
-class Employee:
+class EmployeePayroll:
     basicSalary = 0
     gross_salary = 0
     taxable_income = 0
@@ -10,7 +11,7 @@ class Employee:
     payee = 0
     personal_relief = 0
     total_tax = 0
-    net_salary =0
+    net_salary = 0
 
     def __init__(self, basic_salary):
         self.basicSalary = basic_salary
@@ -28,9 +29,19 @@ class Employee:
         return gross_salary
 
     def calculate_nssf(self):
-        nssf = 400
-        self.nssf_deduction = nssf
-        return nssf
+        if 0 < self.gross_salary <= 6000:
+            nssf = 0.06 * self.gross_salary
+            self.nssf_deduction = nssf
+            return nssf
+        elif 6000 < self.gross_salary < 18000:
+            remainder = self.gross_salary - 6000
+            nssf = 6000 * 0.06 + remainder * 0.06
+            self.nssf_deduction = nssf
+            return nssf
+        elif self.gross_salary > 18000:
+            nssf = 6000 * 0.06 + 12000 * 0.06
+            self.nssf_deduction = nssf
+            return nssf
 
     def calculate_nhif(self):
         if 0 <= self.gross_salary <= 5999:  # 0 - 5999
