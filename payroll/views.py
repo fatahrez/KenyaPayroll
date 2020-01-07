@@ -20,6 +20,7 @@ class EmployeePayroll:
         self.calculate_nhif()
         self.calculate_taxable_income()
         self.calculate_payee()
+        self.calculate_tax_payable()
         self.calculate_net_salary()
 
     def calculate_gross_salary(self):
@@ -119,7 +120,35 @@ class EmployeePayroll:
         return nti
 
     def calculate_payee(self):
-        pass
+        tier1 = 12298
+        tier2 = 11587
+        tier3 = 11587
+        tier4 = 11587
+
+        if self.taxable_income <= 12298:
+            tax = self.taxable_income * 0.1
+            self.payee = tax
+            return tax
+        elif 12299 <= self.taxable_income <= 23885:
+            remainder = self.taxable_income - 12298
+            tax = tier1 * 0.1 + 0.15 * remainder
+            self.payee = tax
+            return tax
+        elif 23886 <= self.taxable_income <= 35472:
+            remainder = self.taxable_income - tier1 - tier2
+            tax = (tier1 * 0.1) + (tier2 * 0.15) + (0.2 * remainder)
+            self.payee = tax
+            return tax
+        elif 35473 <= self.taxable_income <= 47059:
+            remainder = self.taxable_income - tier1 - tier2 - tier3
+            tax = (tier1 * 0.1) + (tier2 * 0.15) + (tier3 * 0.2) + (0.25 * remainder)
+            self.payee = tax
+            return tax
+        elif self.taxable_income >= 47059:
+            remainder = self.taxable_income - tier1 - tier2 - tier3 - tier4
+            tax = (tier1 * 0.1) + (tier2 * 0.15) + (tier3 * 0.2) + (0.25 * tier4) + (0.3 * remainder)
+            self.payee = tax
+            return tax
 
     def calculate_net_salary(self):
         pass
