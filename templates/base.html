@@ -75,4 +75,14 @@
             </div>
         </div>
     </body>
+
+        {% block footer_javascript %}
+        {% block footer_javascript_site %}
+            <script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+            <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+            <script src="{{ STATIC_URL }}js/app.js"></script>
+        {% endblock footer_javascript_site %}
+        {% block footer_javascript_section %}{% endblock footer_javascript_section %}
+        {% block footer_javascript_page %}{% endblock footer_javascript_page %}
+    {% endblock footer_javascript %}
 </html>
