@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'payroll.apps.PayrollConfig',
+
+    'bootstrap4',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [

@@ -7,5 +7,13 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/payroll_kenya</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Django default" uuid="594a38a9-7f51-4eec-953f-a4c3e6bbac7a">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/PayrollPractise/settings.py</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/payroll_kenya</jdbc-url>
+    </data-source>
   </component>
 </project>

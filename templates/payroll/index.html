@@ -1,3 +1,5 @@
+{% load bootstrap4 %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +7,13 @@
     <title>Title</title>
 </head>
 <body>
-    <p>Welcome to payroll</p>
+{% block content %}
+{#    {{ block.super }}#}
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form employee_form %}
+        <input type="submit" value="Add Employee">
+    </form>
+{% endblock %}
 </body>
 </html>
