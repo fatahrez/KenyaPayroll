@@ -36,9 +36,22 @@ class EmployeePayroll:
         return gross_salary
 
     def calculate_nssf(self):
-        nssf = 400
-        self.nssf_deduction = nssf
-        return nssf
+        # nssf = 400
+        # self.nssf_deduction = nssf
+        # return nssf
+        if 0 < self.gross_salary <= 6000:
+            nssf = 0.06 * self.gross_salary
+            self.nssf_deduction = nssf
+            return nssf
+        elif 6000 < self.gross_salary < 18000:
+            remainder = self.gross_salary - 6000
+            nssf = 6000 * 0.06 + remainder * 0.06
+            self.nssf_deduction = nssf
+            return nssf
+        elif self.gross_salary > 18000:
+            nssf = 6000 * 0.06 + 12000 * 0.06
+            self.nssf_deduction = nssf
+            return nssf
 
     def calculate_nhif(self):
         if 0 <= self.gross_salary <= 5999:  # 0 - 5999
@@ -111,7 +124,7 @@ class EmployeePayroll:
             return nhif
 
     def calculate_taxable_income(self):
-        nti = self.gross_salary
+        nti = self.gross_salary - self.nssf_deduction
         self.taxable_income = nti
         return nti
 
@@ -152,7 +165,7 @@ class EmployeePayroll:
         return tax_payable
 
     def calculate_net_salary(self):
-        net_sal = self.taxable_income - (self.nssf_deduction + self.nhif_deduction + self.total_tax_payable)
+        net_sal = self.taxable_income - (self.nhif_deduction + self.total_tax_payable)
         self.net_salary = net_sal
         return net_sal
 
