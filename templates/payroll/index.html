@@ -1,19 +1,11 @@
-{% load bootstrap4 %}
-{% load crispy_forms_tags %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% block nav-style %} mkt-nav {% endblock nav-style %}
+
 {% block content %}
-{#    {{ block.super }}#}
     <form method="post">
         {% csrf_token %}
-        {% bootstrap_form employee_form %}
+        {{ employee_form }}
         <input type="submit" value="Add Employee">
     </form>
 {% endblock %}
-</body>
-</html>
