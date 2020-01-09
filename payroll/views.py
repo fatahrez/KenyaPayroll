@@ -1,6 +1,6 @@
 from django.forms import Form
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 from payroll.forms import EmployeeForm
@@ -201,3 +201,8 @@ def all_employees(request):
     employees = EmployeeModel.objects.all()
 
     return render(request, 'payroll/all_employees.html', {'employees': employees})
+
+
+def employee_detail(request, employee_id):
+    employee = get_object_or_404(EmployeeModel, pk=employee_id)
+    return render(request, 'payroll/employee_detail.html', {'employee': employee})
