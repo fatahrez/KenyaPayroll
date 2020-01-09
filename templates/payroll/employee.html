@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %} Create employee {% endblock title %}
+
+{% block content %}
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <form method="POST" enctype="multipart/form-data" class="post-form">
+                        {% csrf_token %}
+                        {% bootstrap_form employee_form %}
+                        <button type="submit" class="save btn btn-success" value="Add Employee"> Save </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+{% endblock %}

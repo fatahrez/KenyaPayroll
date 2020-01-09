@@ -170,14 +170,29 @@ class EmployeePayroll:
 
 
 def index(request):
+    # if request.method == 'POST':
+    #     form = EmployeeForm(request.POST)
+    #
+    #     if form.is_valid():
+    #         form.save()
+    #         return HttpResponseRedirect('/thanks/')
+    #
+    # else:
+    #     form = EmployeeForm()
+    #
+    return render(request, 'payroll/index.html')
+
+
+def create_employee(request):
     if request.method == 'POST':
         form = EmployeeForm(request.POST)
 
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/thanks/')
+            return HttpResponseRedirect('/employees')
 
     else:
         form = EmployeeForm()
 
-    return render(request, 'payroll/index.html', {'employee_form': form})
+    return render(request, 'payroll/employee.html', {'employee_form': form})
+
