@@ -1,7 +1,6 @@
 from django.forms import Form
 from django.http import HttpResponse
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from payroll.forms import EmployeeForm
@@ -172,12 +171,12 @@ class EmployeePayroll:
 
 def index(request):
     if request.method == 'POST':
-        form = EmployeeForm(request.POST)
+        form = EmployeeForm(request.POST, request.FILES)
 
         if form.is_valid():
-            f = form.save()
-            employee = EmployeeModel.objects.create(f)
-            employee.save()
-    else:
-        pass
+            emp = EmployeeModel.objects.create(form.data)
+            emp.save()
+            return HttpResponse("eemployee saved")
+        else:
+            form = EmployeeForm()
     return render(request, 'payroll/index.html', {'employee_form': EmployeeForm})
