@@ -196,3 +196,8 @@ def create_employee(request):
 
     return render(request, 'payroll/employee.html', {'employee_form': form})
 
+
+def all_employees(request):
+    employees = EmployeeModel.objects.all()
+
+    return render(request, 'payroll/all_employees.html', {'employees': employees})

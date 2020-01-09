@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %} Home {% endblock title %}
+{% block nav-style %} mkt-nav {% endblock nav-style %}
+
+{% block content %}
+    <ul>
+        {% for employee in employees %}
+            <li> {{ employee }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

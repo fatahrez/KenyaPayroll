@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/payroll/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/payroll/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payroll/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payroll/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -178,7 +177,7 @@
       <workItem from="1578515350195" duration="862000" />
       <workItem from="1578516779269" duration="1865000" />
       <workItem from="1578571704945" duration="5627000" />
-      <workItem from="1578577974598" duration="2788000" />
+      <workItem from="1578577974598" duration="3361000" />
     </task>
     <servers />
   </component>
