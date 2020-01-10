@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 from payroll.forms import EmployeeForm
-from payroll.models import EmployeeModel
+from payroll.models import EmployeeModel, PayrollModel
 
 
 class EmployeePayroll:
@@ -206,3 +206,22 @@ def all_employees(request):
 def employee_detail(request, employee_id):
     employee = get_object_or_404(EmployeeModel, pk=employee_id)
     return render(request, 'payroll/employee_detail.html', {'employee': employee})
+
+
+def generate_payroll(request, month, employee_id):
+    employee = EmployeeModel.objects.get(pk=employee_id)
+    calculate_payroll = EmployeePayroll(employee.basic_salary)
+
+    payroll = PayrollModel()
+    payroll.employee_id = employee
+    payroll.month = month
+    payroll.gross_pay = calculate_payroll.basicSalary
+    payroll.nssf_deduction = calculate_payroll.nssf_deduction
+    payroll.nhif_deduction = calculate_payroll.nhif_deduction
+    payroll.payee = calculate_payroll.payee
+    payroll.personal_relief = calculate_payroll.personal_relief
+    payroll.total_tax = calculate_payroll.total_tax_payable
+    payroll.net_salary = calculate_payroll.net_salary
+    payroll.save()
+
+    return render(request, 'payroll/calculate_payroll_employee.html', {'payroll': payroll})
