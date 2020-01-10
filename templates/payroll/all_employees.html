@@ -7,7 +7,7 @@
 {% block content %}
     <ul>
         {% for employee in employees %}
-            <li> {{ employee }}</li>
+            <a href="/employees/{{ employee.id }}"><li> {{ employee }}</li></a>
         {% endfor %}
     </ul>
 {% endblock %}
