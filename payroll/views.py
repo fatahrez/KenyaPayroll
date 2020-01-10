@@ -1,4 +1,7 @@
-from django.forms import Form
+import io
+from django.http import FileResponse
+from reportlab
+
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -221,4 +224,8 @@ def generate_payroll(request, employee_id):
         form = MonthForm()
 
     payroll = PayrollModel.objects.get(employee_id_id=employee_id)
+
+    buffer = io.BytesIO()
+    p = canvas
+
     return render(request, 'payroll/calculate_payroll_employee.html', {'form': form, 'payroll': payroll})
