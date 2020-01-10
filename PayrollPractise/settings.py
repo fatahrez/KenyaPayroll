@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'payroll.apps.PayrollConfig',
 
     'bootstrap4',
+    'bootstrap3',
     'crispy_forms'
 ]
 
