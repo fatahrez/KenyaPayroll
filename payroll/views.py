@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
-from payroll.forms import EmployeeForm
+from payroll.forms import EmployeeForm, MonthForm
 from payroll.models import EmployeeModel, PayrollModel
 
 
@@ -170,16 +170,6 @@ class EmployeePayroll:
 
 
 def index(request):
-    # if request.method == 'POST':
-    #     form = EmployeeForm(request.POST)
-    #
-    #     if form.is_valid():
-    #         form.save()
-    #         return HttpResponseRedirect('/thanks/')
-    #
-    # else:
-    #     form = EmployeeForm()
-    #
     return render(request, 'payroll/index.html')
 
 
@@ -208,20 +198,27 @@ def employee_detail(request, employee_id):
     return render(request, 'payroll/employee_detail.html', {'employee': employee})
 
 
-def generate_payroll(request, month, employee_id):
-    employee = EmployeeModel.objects.get(pk=employee_id)
-    calculate_payroll = EmployeePayroll(employee.basic_salary)
+def generate_payroll(request, employee_id):
+    if request.method == 'POST':
+        form = MonthForm(request.POST)
 
-    payroll = PayrollModel()
-    payroll.employee_id = employee
-    payroll.month = month
-    payroll.gross_pay = calculate_payroll.basicSalary
-    payroll.nssf_deduction = calculate_payroll.nssf_deduction
-    payroll.nhif_deduction = calculate_payroll.nhif_deduction
-    payroll.payee = calculate_payroll.payee
-    payroll.personal_relief = calculate_payroll.personal_relief
-    payroll.total_tax = calculate_payroll.total_tax_payable
-    payroll.net_salary = calculate_payroll.net_salary
-    payroll.save()
+        if form.is_valid():
+            employee = EmployeeModel.objects.get(pk=employee_id)
+            calculate_payroll = EmployeePayroll(int(employee.basic_salary))
+            payroll = PayrollModel()
+            payroll.employee_id = employee
+            payroll.month = form.cleaned_data['month']
+            payroll.gross_pay = calculate_payroll.basicSalary
+            payroll.nssf_deduction = calculate_payroll.nssf_deduction
+            payroll.nhif_deduction = calculate_payroll.nhif_deduction
+            payroll.payee = calculate_payroll.payee
+            payroll.personal_relief = calculate_payroll.personal_relief
+            payroll.total_tax = calculate_payroll.total_tax_payable
+            payroll.net_salary = calculate_payroll.net_salary
+            payroll.save()
+            return HttpResponseRedirect('/')
+    else:
+        form = MonthForm()
 
-    return render(request, 'payroll/calculate_payroll_employee.html', {'payroll': payroll})
+    payroll = PayrollModel.objects.get(employee_id_id=employee_id)
+    return render(request, 'payroll/calculate_payroll_employee.html', {'form': form, 'payroll': payroll})

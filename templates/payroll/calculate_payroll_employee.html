@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Calculate</button>
+    </form>
+
+    {{ payroll.net_salary }}
+    <br>
+    <button>Get payslip</button>
+{% endblock %}
