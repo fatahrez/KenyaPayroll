@@ -1,15 +1,16 @@
-import io
-from django.http import FileResponse
-from reportlab.pdfgen import canvas
+from django.core.files.storage import FileSystemStorage
+from django.template.loader import render_to_string
 
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 
-# Create your views here.
+from weasyprint import HTML
+
 from payroll.forms import EmployeeForm, MonthForm
 from payroll.models import EmployeeModel, PayrollModel
 
 
+# Create your views here.
 class EmployeePayroll:
     basicSalary = 0
     gross_salary = 0
@@ -229,15 +230,15 @@ def generate_payroll(request, employee_id):
 
 
 def employee_payslip_pdf(request, employee_id):
-    buffer = io.BytesIO()
-    p = canvas.Canvas(buffer)
-
     payroll = PayrollModel.objects.get(employee_id_id=employee_id)
+    pre_total = payroll.net_salary - payroll.nhif_deduction
+    html_string = render_to_string('payroll/payslip_pdf_template.html', {'payroll': payroll, 'pre_total': pre_total})
 
-    p.drawString(100, 100, str(payroll.net_salary))
+    html = HTML(string=html_string).write_pdf(target='/tmp/mypayslip.pdf')
 
-    p.showPage()
-    p.save()
-
-    buffer.seek(0)
-    return FileResponse(buffer, as_attachment=True, filename='payslip.pdf')
+    fs = FileSystemStorage('/tmp')
+    with fs.open('mypayslip.pdf') as pdf:
+        response = HttpResponse(pdf, content_type='application/pdf')
+        response['Content-Disposition'] = 'attachment; filename="mypayslip.pdf"'
+        return response
+    return response
