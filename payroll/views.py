@@ -1,6 +1,6 @@
 import io
 from django.http import FileResponse
-from reportlab
+from reportlab.pdfgen import canvas
 
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, redirect, get_object_or_404
@@ -225,7 +225,19 @@ def generate_payroll(request, employee_id):
 
     payroll = PayrollModel.objects.get(employee_id_id=employee_id)
 
-    buffer = io.BytesIO()
-    p = canvas
-
     return render(request, 'payroll/calculate_payroll_employee.html', {'form': form, 'payroll': payroll})
+
+
+def employee_payslip_pdf(request, employee_id):
+    buffer = io.BytesIO()
+    p = canvas.Canvas(buffer)
+
+    payroll = PayrollModel.objects.get(employee_id_id=employee_id)
+
+    p.drawString(100, 100, str(payroll.net_salary))
+
+    p.showPage()
+    p.save()
+
+    buffer.seek(0)
+    return FileResponse(buffer, as_attachment=True, filename='payslip.pdf')
