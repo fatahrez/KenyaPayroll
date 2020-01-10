@@ -5,19 +5,25 @@
 
 
 {% block content %}
-{#    <div class="container container-fluid">#}
-{#        <div class="row">#}
-{#            <div class="col-md-4"></div>#}
-{#            <div class="col-md-4">#}
-{#                <div class="text-center">#}
-{#                    <form method="POST" enctype="multipart/form-data" class="post-form">#}
-{#                        {% csrf_token %}#}
-{#                        {% bootstrap_form employee_form %}#}
-{#                        <button type="submit" class="save btn btn-success" value="Add Employee"> Save </button>#}
-{#                    </form>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="col-md-4"></div>#}
-{#        </div>#}
-{#    </div>#}
+    <br>
+    <br>
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="wb-caption-subject wb-font-darker wb-uppercase">Payroll</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <p>Process your monthly payroll quick and easy</p>
+                            <p>Your last payroll month was <a href="" class="label label-info">Dec, 2019</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
 {% endblock %}
