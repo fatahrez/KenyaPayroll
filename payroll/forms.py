@@ -1,9 +1,7 @@
-from django.forms import ModelForm
 from django import forms
-from pip._vendor.msgpack.fallback import xrange
+from django.forms import ModelForm
 
 from payroll.models import EmployeeModel
-from payroll.utils import MonthYearWidget
 
 
 class EmployeeForm(ModelForm):

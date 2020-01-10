@@ -1,9 +1,7 @@
 from django.core.files.storage import FileSystemStorage
-from django.template.loader import render_to_string
-
-from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-
+from django.template.loader import render_to_string
 from weasyprint import HTML
 
 from payroll.forms import EmployeeForm, MonthForm
