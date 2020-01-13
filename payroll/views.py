@@ -3,7 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.template.loader import render_to_string
 from weasyprint import HTML
-
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from payroll.forms import EmployeeForm, MonthForm
 from payroll.models import EmployeeModel, PayrollModel
 
@@ -171,8 +172,38 @@ class EmployeePayroll:
         return net_sal
 
 
+@login_required
 def index(request):
-    return render(request, 'payroll/index.html')
+    employees = EmployeeModel.objects.all()
+    employees_count = employees.count()
+    return render(request, 'payroll/index.html', {'employees_count': employees_count})
+
+
+def employees(request):
+    employees = EmployeeModel.objects.all()
+    if request.method == 'POST':
+        form = EmployeeForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Employee added successfully")
+        else:
+            messages.error(request, "Error adding employee")
+    else:
+        form = EmployeeForm()
+    return render(request, 'payroll/employees.html', {'employees': employees, 'employee_form': form})
+
+
+def nhif_view(request):
+    return render(request, 'payroll/nhif.html')
+
+
+def nssf_view(request):
+    return render(request, 'payroll/nssf.html')
+
+
+def kra_view(request):
+    return render(request, 'payroll/kra.html')
 
 
 def create_employee(request):
