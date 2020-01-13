@@ -13,6 +13,11 @@ class EmployeeModel(models.Model):
         ('NR', 'Non-Resident')
     )
 
+    CONTRACT_OPTIONS = (
+        ('P', 'Permanent'),
+        ('T', 'Temporary')
+    )
+
     first_name = models.CharField(max_length=255)
     middle_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
@@ -29,9 +34,9 @@ class EmployeeModel(models.Model):
     bank_account_name = models.CharField(max_length=255)
     bank_account_number = models.CharField(max_length=35)
     bank_branch = models.CharField(max_length=40)
-    employee_job_number = models.CharField(max_length=50, null=True)
+    employee_personal_number = models.CharField(max_length=50, null=True)
     date_of_employment = models.DateField(null=True)
-    contract_end_date = models.DateField(null=True)
+    contract_type = models.CharField(choices=CONTRACT_OPTIONS, max_length=1, null=True)
     job_title = models.CharField(max_length=50, null=True)
     employee_email = models.EmailField(unique=True, null=True)
     mobile_phone = models.CharField(max_length=15, null=True)
@@ -53,3 +58,5 @@ class PayrollModel(models.Model):
 
     def __str__(self):
         return self.employee_id.last_name
+
+class Allowances(models.Model):
