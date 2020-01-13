@@ -33,8 +33,7 @@
         <!-- page start-->
         <section class="panel">
             <header class="panel-heading" style="margin-bottom:5px">
-                <a style="color:white" class="btn btn-success btn-xs" data-toggle="modal"
-                   data-target="#add_employee"><i class="fa fa-plus"></i> Add </a>
+                <a href="{% url 'payroll:new_employee' %}" style="color:white" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Add </a>
             </header>
             <!--Modal: modalConfirmDelete-->
             <div class="modal fade" id="add_employee" tabindex="-1" role="dialog"
