@@ -30,7 +30,7 @@ class EmployeeModel(models.Model):
     nhif_no = models.CharField(max_length=15, unique=True)
     passport_photo = models.ImageField(blank=True)
     basic_salary = models.CharField(max_length=15)
-    allowances = models.ManyToManyField('Allowance', null=True)
+    allowances = models.ManyToManyField('Allowance', blank=True)
     bank = models.CharField(max_length=50, null=True)
     bank_account_name = models.CharField(max_length=255)
     bank_account_number = models.CharField(max_length=35)
