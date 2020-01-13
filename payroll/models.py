@@ -13,6 +13,11 @@ class EmployeeModel(models.Model):
         ('NR', 'Non-Resident')
     )
 
+    CONTRACT_OPTIONS = (
+        ('P', 'Permanent'),
+        ('T', 'Temporary')
+    )
+
     first_name = models.CharField(max_length=255)
     middle_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
@@ -25,13 +30,14 @@ class EmployeeModel(models.Model):
     nhif_no = models.CharField(max_length=15, unique=True)
     passport_photo = models.ImageField(blank=True)
     basic_salary = models.CharField(max_length=15)
+    allowances = models.ManyToManyField('Allowance', null=True)
     bank = models.CharField(max_length=50, null=True)
     bank_account_name = models.CharField(max_length=255)
     bank_account_number = models.CharField(max_length=35)
     bank_branch = models.CharField(max_length=40)
-    employee_job_number = models.CharField(max_length=50, null=True)
+    employee_personal_number = models.CharField(max_length=50, null=True)
     date_of_employment = models.DateField(null=True)
-    contract_end_date = models.DateField(null=True)
+    contract_type = models.CharField(choices=CONTRACT_OPTIONS, max_length=1, null=True)
     job_title = models.CharField(max_length=50, null=True)
     employee_email = models.EmailField(unique=True, null=True)
     mobile_phone = models.CharField(max_length=15, null=True)
@@ -53,3 +59,11 @@ class PayrollModel(models.Model):
 
     def __str__(self):
         return self.employee_id.last_name
+
+
+class Allowance(models.Model):
+    allowance_name = models.CharField(max_length=50)
+    amount = models.IntegerField()
+
+    def __str__(self):
+        return self.allowance_name
