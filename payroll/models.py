@@ -25,6 +25,7 @@ class EmployeeModel(models.Model):
     nhif_no = models.CharField(max_length=15, unique=True)
     passport_photo = models.ImageField(blank=True)
     basic_salary = models.CharField(max_length=15)
+    bank = models.CharField(max_length=50, null=True)
     bank_account_name = models.CharField(max_length=255)
     bank_account_number = models.CharField(max_length=35)
     bank_branch = models.CharField(max_length=40)

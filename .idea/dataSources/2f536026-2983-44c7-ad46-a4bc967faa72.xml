@@ -104,16 +104,16 @@
       <Owner>fatah</Owner>
       <IntrospectionStateNumber>4881</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|142848|142850|1
-sequence|table|142891|142893|1
-sequence|table|142770|142772|1
-sequence|table|142780|142782|1
+      <Relations>sequence|table|142780|142782|1
 sequence|table|142788|142790|1
+sequence|table|142770|142772|1
 sequence|table|142752|142754|1
 sequence|table|142723|142725|1
 sequence|table|142734|142736|1
 sequence|table|142744|142746|1
 sequence|table|142762|142764|1
+sequence|table|142848|142850|1
+sequence|table|142891|142893|1
 </Relations>
       <Visible>1</Visible>
     </database>

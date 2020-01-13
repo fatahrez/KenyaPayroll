@@ -207,8 +207,7 @@ def generate_payroll(request, employee_id):
         if form.is_valid():
             employee = EmployeeModel.objects.get(pk=employee_id)
             calculate_payroll = EmployeePayroll(int(employee.basic_salary))
-            payroll = PayrollModel()
-            payroll.employee_id = employee
+            payroll = PayrollModel.objects.create(employee_id_id=employee_id)
             payroll.month = form.cleaned_data['month']
             payroll.gross_pay = calculate_payroll.basicSalary
             payroll.nssf_deduction = calculate_payroll.nssf_deduction
@@ -222,9 +221,9 @@ def generate_payroll(request, employee_id):
     else:
         form = MonthForm()
 
-    payroll = PayrollModel.objects.get(employee_id_id=employee_id)
+    # payroll = PayrollModel.objects.get(employee_id_id=employee_id)
 
-    return render(request, 'payroll/calculate_payroll_employee.html', {'form': form, 'payroll': payroll})
+    return render(request, 'payroll/calculate_payroll_employee.html', {'form': form})
 
 
 def employee_payslip_pdf(request, employee_id):
