@@ -33,8 +33,7 @@
         <!-- page start-->
         <section class="panel">
             <header class="panel-heading" style="margin-bottom:5px">
-                <a style="color:white" class="btn btn-success btn-xs" data-toggle="modal"
-                   data-target="#add_employee"><i class="fa fa-plus"></i> Add </a>
+                <a href="{% url 'payroll:new_employee' %}" style="color:white" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Add </a>
             </header>
             <!--Modal: modalConfirmDelete-->
             <div class="modal fade" id="add_employee" tabindex="-1" role="dialog"
@@ -84,19 +83,19 @@
                 {% for emp in employees %}
                 <tr>
                     <td class="p-name">
-                        <a href="#">{{emp.first_name}}</a>
+                        <a href="{{ emp.id }}">{{emp.first_name}}</a>
                     </td>
                     <td class="p-name">
-                        <a href="#">{{emp.middle_name}}</a>
+                        <a href="{{ emp.id }}">{{emp.middle_name}}</a>
                     </td>
                     <td class="p-name">
-                        <a href="#">{{emp.last_name}}</a>
+                        <a href="{{ emp.id }}">{{emp.last_name}}</a>
                     </td>
                     <td class="p-name">
-                        <a href="#">{{emp.national_id}}</a>
+                        <a href="{{ emp.id }}">{{emp.national_id}}</a>
                     </td>
                     <td>
-                        <a href="#" class="btn btn-primary btn-xs"><i
+                        <a href="{{ emp.id }}" class="btn btn-primary btn-xs"><i
                                 class="fa fa-folder"></i> View
                         </a>
                         <a href="#" class="btn btn-info btn-xs"><i

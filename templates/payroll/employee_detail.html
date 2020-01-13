@@ -1,1 +1,7 @@
-{{ employee }}
+{% extends 'base2.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+    {{ employee }}
+    <a href="payroll" class="btn btn-info">Payroll</a>
+{% endblock %}
