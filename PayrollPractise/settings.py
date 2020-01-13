@@ -89,7 +89,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'payroll_kenya',
-        'USER': 'postgres',
+        'USER': 'fatah',
         'PASSWORD': '  ',
     }
 }
