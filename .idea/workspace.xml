@@ -2,19 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82666ebb-ae5c-449d-9797-264a45c5e5b3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/PayrollPractise.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/2f536026-2983-44c7-ad46-a4bc967faa72.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/2f536026-2983-44c7-ad46-a4bc967faa72/storage_v2/_src_/database/payroll_kenya.wjhrgg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/2f536026-2983-44c7-ad46-a4bc967faa72/storage_v2/_src_/database/payroll_kenya.wjhrgg/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PayrollPractise/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PayrollPractise/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PayrollPractise.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PayrollPractise.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/payroll/calculate_payroll_employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payroll/calculate_payroll_employee.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/payroll/employee_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payroll/employee_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/payroll/employees.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payroll/employees.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -211,7 +206,7 @@
       <workItem from="1578577974598" duration="4851000" />
       <workItem from="1578643514489" duration="1457000" />
       <workItem from="1578656828818" duration="22185000" />
-      <workItem from="1578931807682" duration="43000" />
+      <workItem from="1578931807682" duration="2253000" />
     </task>
     <servers />
   </component>

@@ -84,19 +84,19 @@
                 {% for emp in employees %}
                 <tr>
                     <td class="p-name">
-                        <a href="#">{{emp.first_name}}</a>
+                        <a href="{{ emp.id }}">{{emp.first_name}}</a>
                     </td>
                     <td class="p-name">
-                        <a href="#">{{emp.middle_name}}</a>
+                        <a href="{{ emp.id }}">{{emp.middle_name}}</a>
                     </td>
                     <td class="p-name">
-                        <a href="#">{{emp.last_name}}</a>
+                        <a href="{{ emp.id }}">{{emp.last_name}}</a>
                     </td>
                     <td class="p-name">
-                        <a href="#">{{emp.national_id}}</a>
+                        <a href="{{ emp.id }}">{{emp.national_id}}</a>
                     </td>
                     <td>
-                        <a href="#" class="btn btn-primary btn-xs"><i
+                        <a href="{{ emp.id }}" class="btn btn-primary btn-xs"><i
                                 class="fa fa-folder"></i> View
                         </a>
                         <a href="#" class="btn btn-info btn-xs"><i
