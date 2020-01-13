@@ -1,6 +1,38 @@
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Login</button>
-</form>
+{% extends 'base3.html' %}
+
+{% block title %} Log-in {% endblock %}
+
+{% block body %}
+    {% load i18n %}
+    <h1 style="text-align:center">{% trans 'Log-in' %}</h1>
+    <hr>
+    {% if form.errors %}
+    <P style="color:red; font-size:16px;">
+    {% trans "Your username and password didn't match.please try again" %}
+    </P>
+    {% else %}
+    <p style="margin-left:22px">Please use the following form to log-in.</p>
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form action="{% url 'login' %}" class="form-horizontal" method="post" enctype="multipart/form-data">
+                        {% csrf_token%}
+                        {% include 'account/form_template.html'%}
+                        <input type="hidden" name="next" value="{{ next }}" />
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <button type="Submit" class="btn btn-primary">Log-in</button>
+                            </div>
+                        </div>
+                    </form>
+                    <p style="margin-left:15px"><a href="{% url 'password_reset' %}">{% trans 'Forgotten your  password?' %}</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock%}

@@ -1,49 +1,109 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% load bootstrap4 %}
 {% load static %}
-{% block title %} Home {% endblock title %}
+{% block title %} Home {% endblock %}
 
 
 {% block content %}
-    <br>
-    <br>
-    <div class="container container-fluid">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Payroll</h4>
-                    </div>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-4 col-md-6 mb-4">
+            <a href="{% url 'payroll:employees' %}">
+                <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
-                        <div class="card-text">
-                            <p>Process your monthly payroll quick and easy</p>
-                            <p>Your last payroll month was <a href="" class="badge badge-info">Dec, 2019</a></p>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Employees
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{employees_count}}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-user-friends fa-2x text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a class="btn btn-info" href="">
-                            <i class="fad fa-calculator-alt" aria-hidden="true"></i> Process New Payroll</a>
-                    </div>
                 </div>
-            </div>
-            <div class="col-md-3"></div>
+            </a>
         </div>
-        <br>
-        <div class="row">
-            <div class="col-md-3">
-
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-4 col-md-6 mb-4">
+            <a href="{% url 'payroll:kra' %}">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    KRA
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-address-card fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-
-            </div>
+            </a>
+        </div>
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-4 col-md-6 mb-4">
+            <a href="{% url 'payroll:nhif' %}">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    NHIF
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">$30,000</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-book-medical fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-4 col-md-6 mb-4">
+            <a href="{% url 'payroll:nssf' %}">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    NSSF
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">$50,000</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-passport fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
+    <!-- Content Row -->
+
+
+    <!-- Content Row -->
+</div>
+<!-- End of Main Content -->
+
 {% endblock %}
