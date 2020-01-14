@@ -5,9 +5,8 @@ from django.core import exceptions
 from django.utils.translation import ugettext_lazy as _
 
 
-from monthyear import forms
+from monthyear import forms, Month
 from monthyear import widgets
-from monthyear import Month
 from monthyear.util import string_type
 
 
