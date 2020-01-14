@@ -1,7 +1,9 @@
 from django.db import models
 
-
 # Create your models here.
+from monthyear.models import MonthField
+
+
 class EmployeeModel(models.Model):
     GENDER_OPTIONS = (
         ('M', 'Male'),
@@ -47,7 +49,7 @@ class EmployeeModel(models.Model):
 
 
 class PayrollModel(models.Model):
-    month = models.CharField(max_length=30, null=True)
+    month_year = MonthField()
     gross_pay = models.IntegerField(null=True)
     nssf_deduction = models.IntegerField(null=True)
     nhif_deduction = models.IntegerField(null=True)
@@ -59,6 +61,9 @@ class PayrollModel(models.Model):
 
     def __str__(self):
         return self.employee_id.last_name
+
+    def __unicode__(self):
+        return unicode(self.month_year)
 
 
 class Allowance(models.Model):
