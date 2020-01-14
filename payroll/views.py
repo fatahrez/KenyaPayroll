@@ -270,3 +270,8 @@ def employee_payslip_pdf(request, employee_id):
         response['Content-Disposition'] = 'attachment; filename="mypayslip.pdf"'
         return response
     return response
+
+
+def create_allowance(request):
+    if request.method == 'POST':
+        form =
