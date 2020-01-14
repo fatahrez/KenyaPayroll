@@ -176,7 +176,11 @@ class EmployeePayroll:
 def index(request):
     employees = EmployeeModel.objects.all()
     employees_count = employees.count()
-    return render(request, 'payroll/index.html', {'employees_count': employees_count})
+
+    allowances = Allowance.objects.all()
+    allowance_count = allowances.count()
+
+    return render(request, 'payroll/index.html', {'employees_count': employees_count, 'allowance_count': allowance_count})
 
 
 def employees(request):
