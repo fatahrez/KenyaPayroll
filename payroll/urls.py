@@ -13,5 +13,6 @@ urlpatterns = [
     path('new/', views.create_employee, name='new_employee'),
     path('employees/<int:employee_id>/', views.employee_detail, name='employee_detail'),
     path('employees/<int:employee_id>/payroll/', views.generate_payroll, name='employee_payroll'),
-    path('employees/<int:employee_id>/payroll/payslip', views.employee_payslip_pdf, name='employee_payslip')
+    path('employees/<int:employee_id>/payroll/payslip', views.employee_payslip_pdf, name='employee_payslip'),
+    path('allowances/new/', views.create_allowance, name='create allowance')
 ]
