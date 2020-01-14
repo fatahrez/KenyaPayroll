@@ -5,7 +5,7 @@ from django.template.loader import render_to_string
 from weasyprint import HTML
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from payroll.forms import EmployeeForm, MonthForm
+from payroll.forms import EmployeeForm, MonthForm, AllowanceForm
 from payroll.models import EmployeeModel, PayrollModel
 
 
@@ -274,4 +274,13 @@ def employee_payslip_pdf(request, employee_id):
 
 def create_allowance(request):
     if request.method == 'POST':
-        form =
+        form = AllowanceForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            return HttpResponseRedirect('/allowances')
+    else:
+        form = AllowanceForm()
+
+    return render(request, 'payroll/allowance.html', {'form': form})
