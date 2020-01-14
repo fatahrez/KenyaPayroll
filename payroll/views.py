@@ -5,8 +5,8 @@ from django.template.loader import render_to_string
 from weasyprint import HTML
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from payroll.forms import EmployeeForm, MonthForm
-from payroll.models import EmployeeModel, PayrollModel
+from payroll.forms import EmployeeForm, MonthForm, AllowanceForm
+from payroll.models import EmployeeModel, PayrollModel, Allowance
 
 
 # Create your views here.
@@ -176,7 +176,11 @@ class EmployeePayroll:
 def index(request):
     employees = EmployeeModel.objects.all()
     employees_count = employees.count()
-    return render(request, 'payroll/index.html', {'employees_count': employees_count})
+
+    allowances = Allowance.objects.all()
+    allowance_count = allowances.count()
+
+    return render(request, 'payroll/index.html', {'employees_count': employees_count, 'allowance_count': allowance_count})
 
 
 def employees(request):
@@ -218,12 +222,6 @@ def create_employee(request):
         form = EmployeeForm()
 
     return render(request, 'payroll/employee.html', {'employee_form': form})
-
-
-def all_employees(request):
-    employees = EmployeeModel.objects.all()
-
-    return render(request, 'payroll/all_employees.html', {'employees': employees})
 
 
 def employee_detail(request, employee_id):
@@ -270,3 +268,23 @@ def employee_payslip_pdf(request, employee_id):
         response['Content-Disposition'] = 'attachment; filename="mypayslip.pdf"'
         return response
     return response
+
+
+def create_allowance(request):
+    if request.method == 'POST':
+        form = AllowanceForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            return HttpResponseRedirect('/allowances')
+    else:
+        form = AllowanceForm()
+
+    return render(request, 'payroll/allowance.html', {'form': form})
+
+
+def all_alllowances(request):
+    allowances = Allowance.objects.all()
+
+    return render(request, 'payroll/allowances.html', {'allowances': allowances})

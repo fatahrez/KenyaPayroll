@@ -31,7 +31,7 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'payroll:index' %}">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
+                <i class="fas fa-money-check-alt"></i>
             </div>
             <div class="sidebar-brand-text mx-3">Warda | Payroll</div>
         </a>
@@ -45,11 +45,19 @@
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
+
         <li class="nav-item active">
             <a class="nav-link" href="{% url 'payroll:employees' %}">
                 <i class="fas fa-fw fa-user-friends"></i>
                 <span>Employees</span></a>
         </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'payroll:allowances' %}">
+                <i class="fas fa-fw fa-plus"></i>
+                <span>Allowances</span></a>
+        </li>
+
         <li class="nav-item active">
             <a class="nav-link" href="{% url 'payroll:kra' %}">
                 <i class="fas fa-fw fa-address-card"></i>
@@ -101,7 +109,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{request.user.username}}</span>
-                            <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                            <i class="far fa-user-circle"></i>
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

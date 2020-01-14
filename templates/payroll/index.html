@@ -38,6 +38,27 @@
                 </div>
             </a>
         </div>
+        {#        Allowance card#}
+        <div class="col-xl-4 col-md-6 mb-4">
+            <a href="{% url 'payroll:allowances' %}">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Allowances
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{allowance_count}}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-user-plus fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-4 col-md-6 mb-4">
             <a href="{% url 'payroll:kra' %}">
@@ -48,7 +69,7 @@
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     KRA
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">Kshs. 40,000</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-address-card fa-2x text-gray-300"></i>
@@ -68,7 +89,7 @@
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     NHIF
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$30,000</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">Kshs. 30,000</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-book-medical fa-2x text-gray-300"></i>
@@ -88,7 +109,7 @@
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     NSSF
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$50,000</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">Kshs. 50,000</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-passport fa-2x text-gray-300"></i>
