@@ -4,9 +4,7 @@
     <list default="true" id="82666ebb-ae5c-449d-9797-264a45c5e5b3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/payroll/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payroll/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payroll/all_employees.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payroll/allowances.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payroll/allowances.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base2.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -203,7 +201,7 @@
       <workItem from="1578577974598" duration="4851000" />
       <workItem from="1578643514489" duration="1457000" />
       <workItem from="1578656828818" duration="22185000" />
-      <workItem from="1578931807682" duration="9875000" />
+      <workItem from="1578931807682" duration="10466000" />
     </task>
     <servers />
   </component>
