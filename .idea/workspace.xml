@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82666ebb-ae5c-449d-9797-264a45c5e5b3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/monthyear/static/month/field/widget_month.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2f536026-2983-44c7-ad46-a4bc967faa72.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2f536026-2983-44c7-ad46-a4bc967faa72.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monthyear/Month.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/monthyear/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/monthyear/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monthyear/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/monthyear/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/payroll/employee_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payroll/employee_detail.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +96,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/monthyear/static" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -103,13 +108,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/monthyear/static" />
       <recent name="C:\Users\OFFICE2\Desktop\KenyaPayroll\account\templates" />
       <recent name="C:\Users\OFFICE2\Desktop\KenyaPayroll\static\theme" />
       <recent name="$PROJECT_DIR$/static/js" />
       <recent name="$PROJECT_DIR$/static/css" />
-      <recent name="$PROJECT_DIR$/static/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/month/field" />
       <recent name="C:\Users\OFFICE2\Desktop\KenyaPayroll\templates" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/static" />
@@ -196,7 +202,9 @@
       <workItem from="1578577974598" duration="4851000" />
       <workItem from="1578643514489" duration="1457000" />
       <workItem from="1578656828818" duration="22185000" />
-      <workItem from="1578931807682" duration="13769000" />
+      <workItem from="1578931807682" duration="13957000" />
+      <workItem from="1578992171055" duration="1529000" />
+      <workItem from="1579004617894" duration="1888000" />
     </task>
     <servers />
   </component>

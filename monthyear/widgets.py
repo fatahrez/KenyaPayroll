@@ -7,7 +7,7 @@ from django.forms import widgets
 from django.utils.dates import MONTHS
 from django.templatetags.static import static
 
-from month.util import string_type
+from monthyear.util import string_type
 
 
 class MonthSelectorWidget(widgets.MultiWidget):

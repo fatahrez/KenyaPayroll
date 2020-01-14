@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'payroll.apps.PayrollConfig',
+    'monthyear',
 
     'bootstrap4',
     'bootstrap3',

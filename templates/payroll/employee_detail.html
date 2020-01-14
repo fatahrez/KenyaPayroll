@@ -2,6 +2,46 @@
 {% load bootstrap4 %}
 
 {% block content %}
-    {{ employee }}
-    <a href="payroll" class="btn btn-info">Payroll</a>
+    <div class="employeeDetail">
+
+  <div class="container p-5">
+    <div class="row">
+
+      <div class="col-md-6 text-center">
+        <span>
+          <img src="{{employee.passport_photo}}"/>
+        </span>
+
+      </div>
+
+      <div class="col-md-6">
+
+        <div class="content text-capitalize">
+          <h1>{{employee.first_name}}</h1>
+          <h4>{{ employee.middle_name }} {{ employee.last_name }} <small class="ml-3">( {{employee.employee_email}} )</small></h4>
+          <hr>
+          <span><strong>Status -</strong> {{ employee.get_residential_status_display }} </span><br>
+          <span><strong>Bank -</strong> {{ employee.bank }} </span>
+          <br>
+          <br>
+          <p><strong>Job Title</strong></p>
+          <p> {{employee.job_title}}</p>
+          <br>
+          <a href="payroll" class="btn btn-outline-success">Get Payroll</a>
+
+          <!-- <div class="row">
+          <div class="col-md-6">
+            <a href="tel:+254789268466">Call for vet</a><br>
+          </div>
+          <div class="col-md-6">
+            <button class="btn btn-outline-success" (click)="submitRequest()">Request this vet</button>
+          </div>
+        </div> -->
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
 {% endblock %}
