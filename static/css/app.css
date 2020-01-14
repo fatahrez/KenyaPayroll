@@ -8,3 +8,27 @@
 .card {
     width: 18rem;
 }
+
+.employeeDetail {
+  min-height: 90vh;
+  padding: 10% 0 0 0;
+}
+.employeeDetail .container{
+  border-radius: 25px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 23px 0 rgba(0, 0, 0, 0.2);
+}
+
+.employeeDetail span i {
+  font-size: 20rem;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.employeeDetail .content h4 small {
+  color: #80868b;
+  text-transform: lowercase !important;
+}
+.employeeDetail .content .btn {
+  width: 300px;
+}
