@@ -49,7 +49,7 @@ class EmployeeModel(models.Model):
 
 
 class PayrollModel(models.Model):
-    month_year = MonthField()
+    month_year = MonthField(null=True)
     gross_pay = models.IntegerField(null=True)
     nssf_deduction = models.IntegerField(null=True)
     nhif_deduction = models.IntegerField(null=True)

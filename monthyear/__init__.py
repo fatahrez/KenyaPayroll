@@ -1,6 +1,6 @@
 import datetime
 
-from month.util import string_type
+from monthyear.util import string_type
 
 
 def days(days):
