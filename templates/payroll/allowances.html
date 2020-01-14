@@ -1,6 +1,6 @@
 {% extends 'base2.html' %}
 {% load static %}
-{% block title %} Employees {% endblock %}
+{% block title %} Allowances {% endblock %}
 
 
 {% block content %}
@@ -23,9 +23,9 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Employees</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+        <h1 class="h3 mb-0 text-gray-800">Allowances</h1>
+{#        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i#}
+{#                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>#}
     </div>
 
     <!-- Content Row -->
@@ -33,69 +33,62 @@
         <!-- page start-->
         <section class="panel">
             <header class="panel-heading" style="margin-bottom:5px">
-                <a href="{% url 'payroll:new_employee' %}" style="color:white" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Add </a>
+                <a href="{% url 'payroll:create_allowance' %}" style="color:white" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Add </a>
             </header>
             <!--Modal: modalConfirmDelete-->
-            <div class="modal fade" id="add_employee" tabindex="-1" role="dialog"
-                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
-                    <!--Content-->
-                    <form class="form-horizontal tabular-form" enctype="multipart/form-data" method="post">
-                        {% csrf_token %}
-                        {{employee_form|crispy }}
-                        <div class="panel-footer">
-                            <div class="row">
-                                <div class="col-sm-8 col-sm-10">
-                                    <input type="submit" class="btn-primary btn" value="Save">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-                    <div class="modal-content text-center">
-                        <!--Header-->
-                        <div class="modal-header d-flex justify-content-center">
-                            <p class="heading">Are you sure?</p>
-                        </div>
-
-
-                        <!--Footer-->
-                        <div class="modal-footer flex-center" style="text-align:center">
-                            <a href="#" class="btn  btn-success">Yes</a>
-                            <a type="button" class="btn  btn-danger waves-effect"
-                               data-dismiss="modal">No</a>
-                        </div>
-                    </div>
-                    <!--/.Content-->
-                </div>
-            </div>
+{#            <div class="modal fade" id="add_employee" tabindex="-1" role="dialog"#}
+{#                 aria-labelledby="exampleModalLabel" aria-hidden="true">#}
+{#                <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">#}
+{#                    <!--Content-->#}
+{#                    <form class="form-horizontal tabular-form" enctype="multipart/form-data" method="post">#}
+{#                        {% csrf_token %}#}
+{#                        {{employee_form|crispy }}#}
+{#                        <div class="panel-footer">#}
+{#                            <div class="row">#}
+{#                                <div class="col-sm-8 col-sm-10">#}
+{#                                    <input type="submit" class="btn-primary btn" value="Save">#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </form>#}
+{##}
+{#                    <div class="modal-content text-center">#}
+{#                        <!--Header-->#}
+{#                        <div class="modal-header d-flex justify-content-center">#}
+{#                            <p class="heading">Are you sure?</p>#}
+{#                        </div>#}
+{##}
+{##}
+{#                        <!--Footer-->#}
+{#                        <div class="modal-footer flex-center" style="text-align:center">#}
+{#                            <a href="#" class="btn  btn-success">Yes</a>#}
+{#                            <a type="button" class="btn  btn-danger waves-effect"#}
+{#                               data-dismiss="modal">No</a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!--/.Content-->#}
+{#                </div>#}
+{#            </div>#}
             <!--Modal: modalConfirmDelete-->
             <table class="table table-hover p-table   responsive" width="100%" id="checked">
                 <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
-                    <th>National Id</th>
+                    <th>Allowance</th>
+                    <th>Amount</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for emp in employees %}
+                {% for allowance in allowances %}
                 <tr>
                     <td class="p-name">
-                        <a href="{{ emp.id }}">{{emp.first_name}}</a>
+                        <a href="{{ allowance.id }}">{{allowance.allowance_name}}</a>
                     </td>
                     <td class="p-name">
-                        <a href="{{ emp.id }}">{{emp.middle_name}}</a>
+                        <a href="{{ allowance.id }}">{{allowance.amount}}</a>
                     </td>
-                    <td class="p-name">
-                        <a href="{{ emp.id }}">{{emp.last_name}}</a>
-                    </td>
-                    <td class="p-name">
-                        <a href="{{ emp.id }}">{{emp.national_id}}</a>
-                    </td>
+
                     <td>
-                        <a href="{{ emp.id }}" class="btn btn-primary btn-xs"><i
+                        <a href="{{ allowance.id }}" class="btn btn-primary btn-xs"><i
                                 class="fa fa-folder"></i> View
                         </a>
                         <a href="#" class="btn btn-info btn-xs"><i
@@ -129,7 +122,7 @@
                     </td>
                     {% empty %}
                     <td class="p-name">
-                        <a>You haven't added any employees yet</a>
+                        <a>You haven't added any allowances yet</a>
                     </td>
                 </tr>
                 {% endfor %}

@@ -6,7 +6,7 @@ from weasyprint import HTML
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from payroll.forms import EmployeeForm, MonthForm, AllowanceForm
-from payroll.models import EmployeeModel, PayrollModel
+from payroll.models import EmployeeModel, PayrollModel, Allowance
 
 
 # Create your views here.
@@ -220,12 +220,6 @@ def create_employee(request):
     return render(request, 'payroll/employee.html', {'employee_form': form})
 
 
-def all_employees(request):
-    employees = EmployeeModel.objects.all()
-
-    return render(request, 'payroll/all_employees.html', {'employees': employees})
-
-
 def employee_detail(request, employee_id):
     employee = get_object_or_404(EmployeeModel, pk=employee_id)
     return render(request, 'payroll/employee_detail.html', {'employee': employee})
@@ -284,3 +278,9 @@ def create_allowance(request):
         form = AllowanceForm()
 
     return render(request, 'payroll/allowance.html', {'form': form})
+
+
+def all_alllowances(request):
+    allowances = Allowance.objects.all()
+
+    return render(request, 'payroll/allowances.html', {'allowances': allowances})
