@@ -304,7 +304,7 @@ def employee_update(request, employee_id):
     if form.is_valid():
         form.save()
         return HttpResponseRedirect("/employees")
-    return render(request, 'employee_update_form.html', {'employee': employee, 'form': form})
+    return render(request, 'employee_update_form.html', {'employee': employee})
 
 
 def delete_employee(request, employee_id):

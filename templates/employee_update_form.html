@@ -6,124 +6,126 @@
 {% block content %}
     <form method="post">
         {% csrf_token %}
-        <div class="form-group">
-            <label for="id_first_name">First name:</label>
-            <input type="text" name="first_name" maxlength="255" required id="id_first_name">
-        </div>
-        <div class="form-group">
-            <label for="id_middle_name">Middle name:</label>
-            <input type="text" name="middle_name" maxlength="255" required id="id_middle_name">
-        </div>
-        <div class="form-group">
-            <label for="id_last_name">Last name:</label>
-            <input type="text" name="last_name" maxlength="255" required id="id_last_name">
-        </div>
-        <div class="form-group">
-            <label for="id_gender">Gender:</label>
-            <select name="gender" required id="id_gender">
-                <option value="" selected>---------</option>
+        <div class="container">
+            <div class="form-group">
+                <label for="id_first_name">First name:</label>
+                <input type="text" name="first_name" maxlength="255" required id="id_first_name" value="{{ employee.first_name }}">
+            </div>
+            <div class="form-group">
+                <label for="id_middle_name">Middle name:</label>
+                <input type="text" name="middle_name" maxlength="255" required id="id_middle_name" value="{{ employee.middle_name }}">
+            </div>
+            <div class="form-group">
+                <label for="id_last_name">Last name:</label>
+                <input type="text" name="last_name" maxlength="255" required id="id_last_name" value="{{ employee.last_name }}">
+            </div>
+            <div class="form-group">
+                <label for="id_gender">Gender:</label>
+                <select name="gender" required id="id_gender">
+                    <option value="" selected>{{ employee.get_gender_display }}</option>
 
-                <option value="M">Male</option>
+                    <option value="M">Male</option>
 
-                <option value="F">Female</option>
+                    <option value="F">Female</option>
 
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="id_date_of_birth">Date of birth:</label>
-            <input type="text" name="date_of_birth" required id="id_date_of_birth">
-        </div>
-        <div class="form-group">
-            <label for="id_residential_status">Residential status:</label>
-            <select name="residential_status" required id="id_residential_status">
-                  <option value="" selected>---------</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="id_date_of_birth">Date of birth:</label>
+                <input type="text" name="date_of_birth" required id="id_date_of_birth" value="{{ employee.date_of_birth }}">
+            </div>
+            <div class="form-group">
+                <label for="id_residential_status">Residential status:</label>
+                <select name="residential_status" required id="id_residential_status">
+                      <option value="" selected>{{ employee.get_residential_status_display }}</option>
 
-                  <option value="R">Resident</option>
+                      <option value="R">Resident</option>
 
-                  <option value="NR">Non-Resident</option>
+                      <option value="NR">Non-Resident</option>
 
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="id_national_id">National id:</label>
-            <input type="text" name="national_id" maxlength="10" required id="id_national_id">
-        </div>
-        <div class="form-group">
-            <label for="id_kra_pin">Kra pin:</label>
-            <input type="text" name="kra_pin" maxlength="11" required id="id_kra_pin">
-        </div>
-        <div class="form-group">
-            <label for="id_nssf_no">Nssf no:</label>
-            <input type="text" name="nssf_no" maxlength="15" required id="id_nssf_no">
-        </div>
-        <div class="form-group">
-            <label for="id_nhif_no">Nhif no:</label>
-            <input type="text" name="nhif_no" maxlength="15" required id="id_nhif_no">
-        </div>
-        <div class="form-group">
-            <label for="id_passport_photo">Passport photo:</label>
-            <input type="file" name="passport_photo" accept="image/*" id="id_passport_photo">
-        </div>
-        <div class="form-group">
-            <label for="id_basic_salary">Basic salary:</label>
-            <input type="text" name="basic_salary" maxlength="15" required id="id_basic_salary">
-        </div>
-        <div class="form-group">
-            <label for="id_allowances">Allowances:</label>
-            <select name="allowances" id="id_allowances" multiple>
-              <option value="1">Hardship Allowance</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="id_national_id">National id:</label>
+                <input type="text" name="national_id" maxlength="10" required id="id_national_id" value="{{ employee.national_id }}">
+            </div>
+            <div class="form-group">
+                <label for="id_kra_pin">Kra pin:</label>
+                <input type="text" name="kra_pin" maxlength="11" required id="id_kra_pin" value="{{ employee.kra_pin }}">
+            </div>
+            <div class="form-group">
+                <label for="id_nssf_no">Nssf no:</label>
+                <input type="text" name="nssf_no" maxlength="15" required id="id_nssf_no" value="{{ employee.nssf_no }}">
+            </div>
+            <div class="form-group">
+                <label for="id_nhif_no">Nhif no:</label>
+                <input type="text" name="nhif_no" maxlength="15" required id="id_nhif_no" value="{{ employee.nhif_no }}">
+            </div>
+            <div class="form-group">
+                <label for="id_passport_photo">Passport photo:</label>
+                <input type="file" name="passport_photo" accept="image/*" id="id_passport_photo">
+            </div>
+            <div class="form-group">
+                <label for="id_basic_salary">Basic salary:</label>
+                <input type="text" name="basic_salary" maxlength="15" required id="id_basic_salary" value="{{ employee.basic_salary }}">
+            </div>
+            <div class="form-group">
+                <label for="id_allowances">Allowances:</label>
+                <select name="allowances" id="id_allowances" multiple>
+                  <option value="1">Hardship Allowance</option>
 
-              <option value="2">Tarnsport Allowance</option>
+                  <option value="2">Tarnsport Allowance</option>
 
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="id_bank">Bank:</label>
-            <input type="text" name="bank" maxlength="50" required id="id_bank">
-        </div>
-        <div class="form-group">
-            <label for="id_bank_account_name">Bank account name:</label>
-            <input type="text" name="bank_account_name" maxlength="255" required id="id_bank_account_name">
-        </div>
-        <div class="form-group">
-            <label for="id_bank_account_number">Bank account number:</label>
-            <input type="text" name="bank_account_number" maxlength="35" required id="id_bank_account_number">
-        </div>
-        <div class="form-group">
-            <label for="id_bank_branch">Bank branch:</label>
-            <input type="text" name="bank_branch" maxlength="40" required id="id_bank_branch">
-        </div>
-        <div class="form-group">
-            <label for="id_employee_personal_number">Employee personal number:</label>
-            <input type="text" name="employee_personal_number" maxlength="50" required id="id_employee_personal_number">
-        </div>
-        <div class="form-group">
-            <label for="id_date_of_employment">Date of employment:</label>
-            <input type="text" name="date_of_employment" required id="id_date_of_employment">
-        </div>
-        <div class="form-group">
-            <label for="id_contract_type">Contract type:</label>
-            <select name="contract_type" required id="id_contract_type">
-              <option value="" selected>---------</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="id_bank">Bank:</label>
+                <input type="text" name="bank" maxlength="50" required id="id_bank" value="{{ employee.bank }}">
+            </div>
+            <div class="form-group">
+                <label for="id_bank_account_name">Bank account name:</label>
+                <input type="text" name="bank_account_name" maxlength="255" required id="id_bank_account_name" value="{{ employee.bank_account_name }}">
+            </div>
+            <div class="form-group">
+                <label for="id_bank_account_number">Bank account number:</label>
+                <input type="text" name="bank_account_number" maxlength="35" required id="id_bank_account_number" value="{{ employee.bank_account_number }}">
+            </div>
+            <div class="form-group">
+                <label for="id_bank_branch">Bank branch:</label>
+                <input type="text" name="bank_branch" maxlength="40" required id="id_bank_branch" value="{{ employee.bank_branch }}">
+            </div>
+            <div class="form-group">
+                <label for="id_employee_personal_number">Employee personal number:</label>
+                <input type="text" name="employee_personal_number" maxlength="50" required id="id_employee_personal_number" value="{{ employee.employee_personal_number }}">
+            </div>
+            <div class="form-group">
+                <label for="id_date_of_employment">Date of employment:</label>
+                <input type="text" name="date_of_employment" required id="id_date_of_employment" value="{{ employee.date_of_birth }}">
+            </div>
+            <div class="form-group">
+                <label for="id_contract_type">Contract type:</label>
+                <select name="contract_type" required id="id_contract_type">
+                  <option value="" selected>{{ employee.get_contract_type_display }}</option>
 
-              <option value="P">Permanent</option>
+                  <option value="P">Permanent</option>
 
-              <option value="T">Temporary</option>
+                  <option value="T">Temporary</option>
 
-            </select>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="id_job_title">Job title:</label>
+                <input type="text" name="job_title" maxlength="50" required id="id_job_title" value="{{ employee.job_title }}">
+            </div>
+            <div class="form-group">
+                <label for="id_employee_email">Employee email:</label>
+                <input type="email" name="employee_email" maxlength="254" required id="id_employee_email" value="{{ employee.employee_email }}">
+            </div>
+            <div class="form-group">
+                <label for="id_mobile_phone">Mobile phone:</label>
+                <input type="text" name="mobile_phone" maxlength="15" required id="id_mobile_phone" value="{{ employee.mobile_phone }}">
+            </div>
+            <input type="submit" value="Update">
         </div>
-        <div class="form-group">
-            <label for="id_job_title">Job title:</label>
-            <input type="text" name="job_title" maxlength="50" required id="id_job_title">
-        </div>
-        <div class="form-group">
-            <label for="id_employee_email">Employee email:</label>
-            <input type="email" name="employee_email" maxlength="254" required id="id_employee_email">
-        </div>
-        <div class="form-group">
-            <label for="id_mobile_phone">Mobile phone:</label>
-            <input type="text" name="mobile_phone" maxlength="15" required id="id_mobile_phone">
-        </div>
-        <input type="submit" value="Update">
     </form>
 {% endblock %}
