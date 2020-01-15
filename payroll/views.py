@@ -2,6 +2,7 @@ from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.template.loader import render_to_string
+from django.views.generic import UpdateView
 from weasyprint import HTML
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -180,7 +181,8 @@ def index(request):
     allowances = Allowance.objects.all()
     allowance_count = allowances.count()
 
-    return render(request, 'payroll/index.html', {'employees_count': employees_count, 'allowance_count': allowance_count})
+    return render(request, 'payroll/index.html',
+                  {'employees_count': employees_count, 'allowance_count': allowance_count})
 
 
 def employees(request):
@@ -288,3 +290,24 @@ def all_alllowances(request):
     allowances = Allowance.objects.all()
 
     return render(request, 'payroll/allowances.html', {'allowances': allowances})
+
+
+def employee_edit(request, employee_id):
+    employee = EmployeeModel.objects.get(id=employee_id)
+    return render(request, 'employee_update_form.html', {'employee': employee})
+
+
+def employee_update(request, employee_id):
+    employee = EmployeeModel.objects.get(id=employee_id)
+
+    form = EmployeeForm(request.POST, instance=employee)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/employees")
+    return render(request, 'employee_update_form.html', {'employee': employee, 'form': form})
+
+
+def delete_employee(request, employee_id):
+    employee = EmployeeModel.objects.get(id=employee_id)
+    employee.delete()
+    return HttpResponseRedirect("/employees")
