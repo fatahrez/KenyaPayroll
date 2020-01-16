@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82666ebb-ae5c-449d-9797-264a45c5e5b3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2f536026-2983-44c7-ad46-a4bc967faa72.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2f536026-2983-44c7-ad46-a4bc967faa72.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payroll/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/employee_update_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/employee_update_form.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +49,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/monthyear/static" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -157,7 +156,8 @@
       <workItem from="1579033615053" duration="1203000" />
       <workItem from="1579074489719" duration="256000" />
       <workItem from="1579079307843" duration="3041000" />
-      <workItem from="1579085970584" duration="8071000" />
+      <workItem from="1579085970584" duration="8344000" />
+      <workItem from="1579161609231" duration="618000" />
     </task>
     <servers />
   </component>
