@@ -1,6 +1,6 @@
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.template.loader import render_to_string
 from django.views.generic import UpdateView
 from weasyprint import HTML
@@ -300,10 +300,11 @@ def employee_edit(request, employee_id):
 def employee_update(request, employee_id):
     employee = EmployeeModel.objects.get(id=employee_id)
 
-    form = EmployeeForm(request.POST, instance=employee)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect("/employees")
+    if request.method == 'POST':
+        form = EmployeeForm(request.POST, instance=employee)
+        if form.is_valid():
+            form.save()
+            return redirect("/employees")
     return render(request, 'employee_update_form.html', {'employee': employee})
 
 

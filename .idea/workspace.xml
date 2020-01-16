@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82666ebb-ae5c-449d-9797-264a45c5e5b3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2f536026-2983-44c7-ad46-a4bc967faa72.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2f536026-2983-44c7-ad46-a4bc967faa72.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/employee_update_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/employee_update_form.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,18 +61,18 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/monthyear/static" />
-      <recent name="C:\Users\OFFICE2\Desktop\KenyaPayroll\account\templates" />
-      <recent name="C:\Users\OFFICE2\Desktop\KenyaPayroll\static\theme" />
-      <recent name="$PROJECT_DIR$/static/js" />
-      <recent name="$PROJECT_DIR$/static/css" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/month/field" />
       <recent name="C:\Users\OFFICE2\Desktop\KenyaPayroll\templates" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/static" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images" />
+      <recent name="$PROJECT_DIR$/monthyear/static" />
+      <recent name="C:\Users\OFFICE2\Desktop\KenyaPayroll\account\templates" />
+      <recent name="C:\Users\OFFICE2\Desktop\KenyaPayroll\static\theme" />
+      <recent name="$PROJECT_DIR$/static/js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -157,7 +158,7 @@
       <workItem from="1579074489719" duration="256000" />
       <workItem from="1579079307843" duration="3041000" />
       <workItem from="1579085970584" duration="8344000" />
-      <workItem from="1579161609231" duration="618000" />
+      <workItem from="1579161609231" duration="1921000" />
     </task>
     <servers />
   </component>
