@@ -22,7 +22,7 @@
             <div class="form-group">
                 <label for="id_gender">Gender:</label>
                 <select name="gender" required id="id_gender">
-                    <option value="" selected>{{ employee.get_gender_display }}</option>
+                    <option value="{{ employee.gender }}" selected>{{ employee.get_gender_display }}</option>
 
                     <option value="M">Male</option>
 
@@ -37,7 +37,7 @@
             <div class="form-group">
                 <label for="id_residential_status">Residential status:</label>
                 <select name="residential_status" required id="id_residential_status">
-                      <option value="" selected>{{ employee.get_residential_status_display }}</option>
+                      <option value="{{ employee.residential_status }}" selected>{{ employee.get_residential_status_display }}</option>
 
                       <option value="R">Resident</option>
 
@@ -105,7 +105,7 @@
             <div class="form-group">
                 <label for="id_contract_type">Contract type:</label>
                 <select name="contract_type" required id="id_contract_type">
-                  <option value="" selected>{{ employee.get_contract_type_display }}</option>
+                  <option value="{{ employee.contract_type }}" selected>{{ employee.get_contract_type_display }}</option>
 
                   <option value="P">Permanent</option>
 
