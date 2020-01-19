@@ -34,6 +34,12 @@
                 <label for="id_date_of_birth">Date of birth:</label>
                 <input type="text" name="date_of_birth" required id="id_date_of_birth" value="{{ employee.date_of_birth }}">
             </div>
+{#            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">#}
+{#              {{ employee.date_of_birth }}#}
+{#              <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">#}
+{#                <div class="input-group-text"><i class="fa fa-calendar"></i></div>#}
+{#              </div>#}
+{#            </div>#}
             <div class="form-group">
                 <label for="id_residential_status">Residential status:</label>
                 <select name="residential_status" required id="id_residential_status">
@@ -128,4 +134,10 @@
             <input type="submit" value="Update">
         </div>
     </form>
+
+    <script>
+      $(function () {
+        $("#datetimepicker1").datetimepicker();
+      });
+    </script>
 {% endblock %}
