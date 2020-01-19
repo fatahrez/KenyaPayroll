@@ -10,7 +10,9 @@
         <button type="submit">Calculate</button>
     </form>
 
-    {{ payroll.net_salary }}
+    {% for payroll in payrolls %}
+        <p>{{ payroll.gross_pay }}</p>
+    {% endfor %}
     <br>
     <a href="payslip" class="btn btn-info">Get payslip</a>
 {% endblock %}

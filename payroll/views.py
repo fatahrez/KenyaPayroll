@@ -252,9 +252,9 @@ def generate_payroll(request, employee_id):
     else:
         form = MonthForm()
 
-    # payroll = PayrollModel.objects.get(employee_id_id=employee_id)
+    payroll = PayrollModel.objects.filter(employee_id_id=employee_id)
 
-    return render(request, 'payroll/calculate_payroll_employee.html', {'form': form})
+    return render(request, 'payroll/calculate_payroll_employee.html', {'form': form, 'payrolls': payroll})
 
 
 def employee_payslip_pdf(request, employee_id):
