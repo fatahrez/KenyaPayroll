@@ -12,7 +12,7 @@
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">Name:</th>
-                        <th scope="col">{{ payroll.employee_id.first_name }} {{ payroll.employee_id.middle_name }} {{ payroll.employee_id.last_name }}</th>
+                        <th scope="col">{{ payroll.employee_id.first_name }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -38,7 +38,9 @@
                     </tr>
                     <tr>
                         <th scope="row">Deductions Before Tax:</th>
-                        <td>{{ pre_total }}</td>
+{#                        <td>{{ pre_total }}</td>#}
+                        <td></td>
+
                     </tr>
                     <tr>
                         <th scope="row">  N.S.S.F.</th>
