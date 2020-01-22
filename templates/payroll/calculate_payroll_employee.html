@@ -1,5 +1,6 @@
 {% extends 'base2.html' %}
 {% load bootstrap4 %}
+{% load bootstrap3 %}
 {% load static %}
 {% block title %} Home {% endblock title %}
 
@@ -10,7 +11,36 @@
         <button type="submit">Calculate</button>
     </form>
 
-    {{ payroll.net_salary }}
-    <br>
-    <a href="payslip" class="btn btn-info">Get payslip</a>
+
+    <h4>Payroll for {{ payrolls.first.employee_id.first_name}} {{ payrolls.first.employee_id.middle_name }} {{ payrolls.first.employee_id.last_name }}</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Payroll Month</th>
+                <th scope="col">Gross Pay</th>
+                <th scope="col">NSSf Deduction</th>
+                <th scope="col">NHIF deduction</th>
+                <th scope="col">Tax</th>
+                <th scope="col">Personal Relief</th>
+                <th scope="col">P.A.Y.E.</th>
+                <th scope="col">Net salary</th>
+                <th scope="col">Payslip</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for payroll in payrolls %}
+                <tr>
+                    <td>{{ payroll.month_year }}</td>
+                    <td>{{ payroll.gross_pay }}</td>
+                    <td>{{ payroll.nssf_deduction }}</td>
+                    <td>{{ payroll.nhif_deduction }}</td>
+                    <td>{{ payroll.payee }}</td>
+                    <td>{{ payroll.personal_relief }}</td>
+                    <td>{{ payroll.total_tax }}</td>
+                    <td>{{ payroll.net_salary }}</td>
+                    <td><a href="payslip" class="btn btn-info">Get payslip</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
