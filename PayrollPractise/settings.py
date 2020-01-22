@@ -7,7 +7,7 @@ For more information on this file, see
 https://docs.djangoproject.com/en/3.0/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/3.0/ref/settings/
+https://docs.djangoproject.com/en/3.0/ref/se[]ttings/
 """
 
 import os
@@ -22,13 +22,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
+MODE=config("MODE", default="dev")
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '51uh+v4ya!)o5%fu0b2f+3n4p8o$s2h6w^b7&ak22y^%w4wcvd'
+SECRET_KEY =config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOST', cast=Csv())
 
 
 # Application definition
@@ -90,15 +92,27 @@ WSGI_APPLICATION = 'PayrollPractise.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'payroll_kenya',
-        'USER': 'fatah',
-        'PASSWORD': '  ',
+if config('MODE')=="dev":
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': config('DB_NAME'),
+            'USER': config('DB_USER'),
+            'PASSWORD': config('DB_PASSWORD'),
+            'HOST': config('DB_HOST'),
+            'PORT': '',
+        }
     }
-}
+#production
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=config('DATABASE_URL')
+        )
+    }
 
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
