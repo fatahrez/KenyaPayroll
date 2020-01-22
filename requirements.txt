@@ -17,3 +17,4 @@ reportlab==3.5.32
 six==1.13.0
 WeasyPrint==51
 whitenoise==4.1.3
+
