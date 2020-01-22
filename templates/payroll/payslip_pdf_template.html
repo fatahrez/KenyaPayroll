@@ -1,100 +1,118 @@
-{% extends 'base.html' %}
-{% load bootstrap4 %}
 {% load static %}
-{% block title %} Home {% endblock title %}
 
-{% block content %}
-    <div class="container container-fluid">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <table class="table">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Name:</th>
-                        <th scope="col">{{ payroll.employee_id.first_name }}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">Job Number:</th>
-                        <td>{{ payroll.employee_id.employee_job_number }}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Job Title:</th>
-                        <td>{{ payroll.employee_id.job_title }}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"></th>
-                        <td>KES</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Basic Pay</th>
-                        <td>{{ payroll.employee_id.basic_salary }}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Gross Pay</th>
-                        <td>{{ payroll.gross_pay }}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Deductions Before Tax:</th>
-{#                        <td>{{ pre_total }}</td>#}
-                        <td></td>
 
-                    </tr>
-                    <tr>
-                        <th scope="row">  N.S.S.F.</th>
-                        <td>-{{ payroll.nssf_deduction }}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Total Deduction Before Tax</th>
-                        <td>-{{ payroll.nssf_deduction }}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Taxable Pay</th>
-                        <td>{{ payroll.gross_pay}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">  Income Tax</th>
-                        <td>{{ payroll.payee}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Less Personal Relief:</th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">  Tax Relief</th>
-                        <td>{{ payroll.personal_relief}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">P.A.Y.E</th>
-                        <td>{{ payroll.total_tax}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">  -Gross Pay after Tax</th>
-                        <td>{{ payroll.net_salary }}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Deductiond After Tax</th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">  N.H.I.F.</th>
-                        <td>{{ payroll.nhif_deduction}}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Total Deductions After Tax</th>
-                        <td>{{ payroll.nhif_deduction}}</td>
-                    </tr>
-                    <hr>
-                    <tr>
-                        <th scope="row">Net Pay</th>
-                        <td>{{ payroll.net_salary }}</td>
-                    </tr>
-                    </tbody>
-                </table>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% block title %} Home {% endblock title %}
+  </head>
+  <body>
+    {% block content %}
+        <div class="container container-fluid">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Name:</th>
+                            <th scope="col">{{ payroll.employee_id.first_name }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">Job Number:</th>
+                            <td>{{ payroll.employee_id.employee_job_number }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Job Title:</th>
+                            <td>{{ payroll.employee_id.job_title }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>KES</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Basic Pay</th>
+                            <td>{{ payroll.employee_id.basic_salary }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Gross Pay</th>
+                            <td>{{ payroll.gross_pay }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Deductions Before Tax:</th>
+    {#                        <td>{{ pre_total }}</td>#}
+                            <td></td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">  N.S.S.F.</th>
+                            <td>-{{ payroll.nssf_deduction }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Total Deduction Before Tax</th>
+                            <td>-{{ payroll.nssf_deduction }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Taxable Pay</th>
+                            <td>{{ payroll.gross_pay}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">  Income Tax</th>
+                            <td>{{ payroll.payee}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Less Personal Relief:</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">  Tax Relief</th>
+                            <td>{{ payroll.personal_relief}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">P.A.Y.E</th>
+                            <td>{{ payroll.total_tax}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">  -Gross Pay after Tax</th>
+                            <td>{{ payroll.net_salary }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Deductiond After Tax</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">  N.H.I.F.</th>
+                            <td>{{ payroll.nhif_deduction}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Total Deductions After Tax</th>
+                            <td>{{ payroll.nhif_deduction}}</td>
+                        </tr>
+                        <hr>
+                        <tr>
+                            <th scope="row">Net Pay</th>
+                            <td>{{ payroll.net_salary }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-2"></div>
             </div>
-            <div class="col-md-2"></div>
         </div>
-    </div>
-{% endblock %}
+    {% endblock %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+
