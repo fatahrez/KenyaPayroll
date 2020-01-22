@@ -38,7 +38,7 @@
                     <td>{{ payroll.personal_relief }}</td>
                     <td>{{ payroll.total_tax }}</td>
                     <td>{{ payroll.net_salary }}</td>
-                    <td><a href="payslip" class="btn btn-info">Get payslip</a></td>
+                    <td><a href="{{ payroll.month_year }}/payslip" class="btn btn-info">Get payslip</a></td>
                 </tr>
             {% endfor %}
         </tbody>
