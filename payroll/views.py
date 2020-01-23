@@ -220,7 +220,7 @@ def bank_reports(request):
 
 def bank_report(request, month_year):
     payroll = PayrollModel.objects.filter(month_year=month_year)
-    return render(request, 'payroll/bank_report.html', {'payroll': payroll})
+    return render(request, 'payroll/bank_report.html', {'payroll': payroll, 'month': month_year})
 
 
 def create_employee(request):
