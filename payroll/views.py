@@ -1,3 +1,4 @@
+import xlwt
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
@@ -322,3 +323,34 @@ def delete_employee(request, employee_id):
     employee = EmployeeModel.objects.get(id=employee_id)
     employee.delete()
     return HttpResponseRedirect("/employees")
+
+
+def bank_report_download(request, month_year):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="bank_report.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('Bank Report')
+
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['EmpNo', 'EmpName', 'Bank Name', 'Account No.', 'Net Pay', ]
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+
+    font_style = xlwt.XFStyle()
+
+    rows = PayrollModel.objects.filter(month_year=month_year).values_list('employee_id__employee_personal_number', 'employee_id__first_name', 'employee_id__bank', 'employee_id__bank_account_number', 'net_salary')
+
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
+
+    return response
