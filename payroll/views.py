@@ -182,8 +182,10 @@ def index(request):
     allowances = Allowance.objects.all()
     allowance_count = allowances.count()
 
+    bank_report_count = PayrollModel.objects.order_by('month_year').distinct('month_year').count()
+
     return render(request, 'payroll/index.html',
-                  {'employees_count': employees_count, 'allowance_count': allowance_count})
+                  {'employees_count': employees_count, 'allowance_count': allowance_count, 'bank_report_count': bank_report_count})
 
 
 def employees(request):
