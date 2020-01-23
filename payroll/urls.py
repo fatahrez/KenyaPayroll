@@ -12,6 +12,7 @@ urlpatterns = [
     path('nhif/', views.nhif_view, name='nhif'),
     path('bank/', views.bank_reports, name='bankReports'),
     path('bank/<str:month_year>/', views.bank_report, name='bankReport'),
+    path('bank/<str:month_year>/download/', views.bank_report_download, name='bankReport'),
     path('employees/new/', views.create_employee, name='new_employee'),
     path('employees/<int:employee_id>/', views.employee_detail, name='employee_detail'),
     path('employees/<int:employee_id>/payroll/', views.generate_payroll, name='employee_payroll'),
