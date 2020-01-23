@@ -13,6 +13,7 @@
                 <th scope="col">Branch Name</th>
                 <th scope="col">Account No.</th>
                 <th scope="col">Net Pay</th>
+                <th scope="col">Download</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,11 @@
                  <tr>
                     <th scope="row">{{ payrol.employee_id.employee_personal_number }}</th>
                     <td>{{ payrol.employee_id.first_name }} {{ payrol.employee_id.middle_name }} {{ payrol.employee_id.last_name }}</td>
+                    <td>{{ payrol.employee_id.bank }}</td>
+                    <td>{{ payrol.employee_id.bank_branch }}</td>
+                    <td>{{ payrol.employee_id.bank_account_number }}</td>
+                    <td>{{ payrol.net_salary }}</td>
+                    <td><a href="download" class="btn btn-outline-info"> Download</a> </td>
                  </tr>
              {% endfor %}
         </tbody>
