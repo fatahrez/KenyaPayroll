@@ -1,9 +1,27 @@
 {% extends 'base2.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% load bootstrap3 %}
 
 {% block content %}
- {% for payrol in payroll %}
-     <p>{{ payrol.employee_id.first_name }}</p>
-     <p>{{ payrol.gross_pay }}</p>
-     <p>{{ payrol.employee_id.bank }}</p>
- {% endfor %}
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">EmpNo</th>
+                <th scope="col">EmpName</th>
+                <th scope="col">Bank Name</th>
+                <th scope="col">Branch Name</th>
+                <th scope="col">Account No.</th>
+                <th scope="col">Net Pay</th>
+            </tr>
+        </thead>
+        <tbody>
+             {% for payrol in payroll %}
+                 <tr>
+                    <th scope="row">{{ payrol.employee_id.employee_personal_number }}</th>
+                    <td>{{ payrol.employee_id.first_name }} {{ payrol.employee_id.middle_name }} {{ payrol.employee_id.last_name }}</td>
+                 </tr>
+             {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

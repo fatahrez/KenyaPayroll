@@ -2,7 +2,6 @@ from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.loader import render_to_string
-from django.views.generic import UpdateView
 from weasyprint import HTML
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
