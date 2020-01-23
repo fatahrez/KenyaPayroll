@@ -185,7 +185,8 @@ def index(request):
     bank_report_count = PayrollModel.objects.order_by('month_year').distinct('month_year').count()
 
     return render(request, 'payroll/index.html',
-                  {'employees_count': employees_count, 'allowance_count': allowance_count, 'bank_report_count': bank_report_count})
+                  {'employees_count': employees_count, 'allowance_count': allowance_count,
+                   'bank_report_count': bank_report_count})
 
 
 def employees(request):
@@ -214,6 +215,11 @@ def nssf_view(request):
 def kra_view(request):
     months = PayrollModel.objects.order_by('month_year').distinct('month_year')
     return render(request, 'payroll/kra.html', {'months': months})
+
+
+def kra_report(request, month_year):
+    payroll = PayrollModel.objects.filter(month_year=month_year)
+    return render(request, 'payroll/kra_report.html', {'payroll': payroll, 'month': month_year})
 
 
 def bank_reports(request):
@@ -347,7 +353,11 @@ def bank_report_download(request, month_year):
 
     font_style = xlwt.XFStyle()
 
-    rows = PayrollModel.objects.filter(month_year=month_year).values_list('employee_id__employee_personal_number', 'employee_id__first_name', 'employee_id__bank', 'employee_id__bank_account_number', 'net_salary')
+    rows = PayrollModel.objects.filter(month_year=month_year).values_list('employee_id__employee_personal_number',
+                                                                          'employee_id__first_name',
+                                                                          'employee_id__bank',
+                                                                          'employee_id__bank_account_number',
+                                                                          'net_salary')
 
     for row in rows:
         row_num += 1

@@ -1,0 +1,41 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% load bootstrap3 %}
+
+{% block content %}
+    <div class="container container-fluid">
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">KRA Report for {{ month }}</h1>
+            <a href="download" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm"><i
+                    class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+        </div>
+
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">EmpNo</th>
+                    <th scope="col">EmpName</th>
+                    <th scope="col">Bank Name</th>
+                    <th scope="col">Branch Name</th>
+                    <th scope="col">Account No.</th>
+                    <th scope="col">Net Pay</th>
+                </tr>
+            </thead>
+            <tbody>
+                 {% for payrol in payroll %}
+                     <tr>
+                        <th scope="row">{{ payrol.employee_id.employee_personal_number }}</th>
+                        <td>{{ payrol.employee_id.first_name }} {{ payrol.employee_id.middle_name }} {{ payrol.employee_id.last_name }}</td>
+                        <td>{{ payrol.employee_id.bank }}</td>
+                        <td>{{ payrol.employee_id.bank_branch }}</td>
+                        <td>{{ payrol.employee_id.bank_account_number }}</td>
+                        <td>{{ payrol.net_salary }}</td>
+                     </tr>
+                 {% endfor %}
+            </tbody>
+        </table>
+    {#    <a href="download" class="btn btn-outline-info"> Download</a> #}
+    </div>
+{% endblock %}
