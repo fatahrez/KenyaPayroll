@@ -1,0 +1,25 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% load bootstrap3 %}
+
+{% block content %}
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Year-Month</th>
+                <th scope="col">Report</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for payrol in payroll  %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ payrol.month_year }}</td>
+                    <td><a href="{{ payrol.month_year }}" class="btn btn-info">Get Report</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

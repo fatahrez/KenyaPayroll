@@ -214,7 +214,8 @@ def kra_view(request):
 
 
 def bank_reports(request):
-    return render(request, 'payroll/bank_reports.html')
+    payroll = PayrollModel.objects.order_by('month_year').distinct('month_year')
+    return render(request, 'payroll/bank_reports.html', {'payroll': payroll})
 
 
 def bank_report(request, month_year):
