@@ -212,7 +212,8 @@ def nssf_view(request):
 
 
 def kra_view(request):
-    return render(request, 'payroll/kra.html')
+    months = PayrollModel.objects.order_by('month_year').distinct('month_year')
+    return render(request, 'payroll/kra.html', {'months': months})
 
 
 def bank_reports(request):
