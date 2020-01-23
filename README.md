@@ -25,3 +25,11 @@ KenyaPayroll is web systen that helps employers manage employee personal records
       * KRA p9 form yearly.
       * NSSF report
       * NHIF report
+
+#### Deployed Version
+The System id deployed in heroku [check it out here] (https://kenyapayroll.herokuapp.com/)
+
+
+Username: user
+
+Password: user1234
