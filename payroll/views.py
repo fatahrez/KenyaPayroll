@@ -213,6 +213,15 @@ def kra_view(request):
     return render(request, 'payroll/kra.html')
 
 
+def bank_reports(request):
+    return render(request, 'payroll/bank_reports.html')
+
+
+def bank_report(request, month_year):
+    payroll = PayrollModel.objects.filter(month_year=month_year)
+    return render(request, 'payroll/bank_report.html', {'payroll': payroll})
+
+
 def create_employee(request):
     if request.method == 'POST':
         form = EmployeeForm(request.POST)
@@ -262,7 +271,6 @@ def employee_payslip_pdf(request, employee_id, month_year):
     payroll = PayrollModel.objects.filter(employee_id_id=employee_id, month_year=month_year).values()
     # pre_total = payroll.first().net_salary - payroll.first().nhif_deduction
     html_string = render_to_string('payroll/payslip_pdf_template.html', {'payroll': payroll.first()})
-
 
     html = HTML(string=html_string).write_pdf(target='/tmp/mypayslip.pdf')
 

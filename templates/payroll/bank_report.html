@@ -1,0 +1,9 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+ {% for payrol in payroll %}
+     <p>{{ payrol.employee_id.first_name }}</p>
+     <p>{{ payrol.gross_pay }}</p>
+     <p>{{ payrol.employee_id.bank }}</p>
+ {% endfor %}
+{% endblock %}
