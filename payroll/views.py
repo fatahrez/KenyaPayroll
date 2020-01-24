@@ -1,5 +1,6 @@
 import xlwt
 from django.core.files.storage import FileSystemStorage
+from django.db.models import Sum
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.loader import render_to_string
@@ -219,7 +220,9 @@ def kra_view(request):
 
 def kra_report(request, month_year):
     payroll = PayrollModel.objects.filter(month_year=month_year)
-    return render(request, 'payroll/kra_report.html', {'payroll': payroll, 'month': month_year})
+    gross_pay_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('gross_pay')).values()
+    return render(request, 'payroll/kra_report.html', {'payroll': payroll, 'month': month_year,
+                                                       'gross_pay_total': gross_pay_total})
 
 
 def bank_reports(request):

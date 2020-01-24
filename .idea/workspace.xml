@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82666ebb-ae5c-449d-9797-264a45c5e5b3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/payroll/kra_report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2f536026-2983-44c7-ad46-a4bc967faa72.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2f536026-2983-44c7-ad46-a4bc967faa72.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payroll/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/payroll/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payroll/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payroll/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payroll/kra.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payroll/kra.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/payroll/kra_report.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payroll/kra_report.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -171,6 +168,7 @@
       <workItem from="1579767386503" duration="1823000" />
       <workItem from="1579771357823" duration="3786000" />
       <workItem from="1579800530901" duration="8360000" />
+      <workItem from="1579824283764" duration="1007000" />
     </task>
     <servers />
   </component>

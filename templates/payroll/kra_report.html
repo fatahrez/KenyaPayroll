@@ -15,25 +15,38 @@
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">EmpNo</th>
-                    <th scope="col">EmpName</th>
-                    <th scope="col">Bank Name</th>
-                    <th scope="col">Branch Name</th>
-                    <th scope="col">Account No.</th>
-                    <th scope="col">Net Pay</th>
+                    <th scope="col">Employee Pin</th>
+                    <th scope="col">Employee Name</th>
+                    <th scope="col">Total Cash</th>
+                    <th scope="col">Total Gross Pay</th>
+                    <th scope="col">NSSF Contribution</th>
+                    <th scope="col">Chargable Pay</th>
+                    <th scope="col">Tax Charged</th>
+                    <th scope="col">Personal Relief</th>
+                    <th scope="col">P.A.Y.E Tax</th>
                 </tr>
             </thead>
             <tbody>
                  {% for payrol in payroll %}
                      <tr>
-                        <th scope="row">{{ payrol.employee_id.employee_personal_number }}</th>
+                        <th scope="row">{{ payrol.employee_id.kra_pin }}</th>
                         <td>{{ payrol.employee_id.first_name }} {{ payrol.employee_id.middle_name }} {{ payrol.employee_id.last_name }}</td>
-                        <td>{{ payrol.employee_id.bank }}</td>
-                        <td>{{ payrol.employee_id.bank_branch }}</td>
-                        <td>{{ payrol.employee_id.bank_account_number }}</td>
-                        <td>{{ payrol.net_salary }}</td>
+                        <td>{{ payrol.gross_pay }}</td>
+                        <td>{{ payrol.gross_pay }}</td>
+                        <td>{{ payrol.nssf_deduction }}</td>
+                        <td>{{ payrol.gross_pay }}</td>
+                        <td>{{ payrol.payee }}</td>
+                        <td>{{ payrol.personal_relief }}</td>
+                        <td>{{ payrol.total_tax }}</td>
                      </tr>
                  {% endfor %}
+                <tr>
+                    <th scope="row">Totals</th>
+                    <td></td>
+                    <td>{{ gross_pay_total }}</td>
+                    <td>{{ gross_pay_total }}</td>
+
+                </tr>
             </tbody>
         </table>
     {#    <a href="download" class="btn btn-outline-info"> Download</a> #}
