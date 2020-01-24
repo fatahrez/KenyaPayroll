@@ -1,5 +1,6 @@
 import xlwt
 from django.core.files.storage import FileSystemStorage
+from django.db.models import Sum
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template.loader import render_to_string
@@ -182,8 +183,11 @@ def index(request):
     allowances = Allowance.objects.all()
     allowance_count = allowances.count()
 
+    bank_report_count = PayrollModel.objects.order_by('month_year').distinct('month_year').count()
+
     return render(request, 'payroll/index.html',
-                  {'employees_count': employees_count, 'allowance_count': allowance_count})
+                  {'employees_count': employees_count, 'allowance_count': allowance_count,
+                   'bank_report_count': bank_report_count})
 
 
 def employees(request):
@@ -210,7 +214,15 @@ def nssf_view(request):
 
 
 def kra_view(request):
-    return render(request, 'payroll/kra.html')
+    months = PayrollModel.objects.order_by('month_year').distinct('month_year')
+    return render(request, 'payroll/kra.html', {'months': months})
+
+
+def kra_report(request, month_year):
+    payroll = PayrollModel.objects.filter(month_year=month_year)
+    gross_pay_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('gross_pay')).values()
+    return render(request, 'payroll/kra_report.html', {'payroll': payroll, 'month': month_year,
+                                                       'gross_pay_total': gross_pay_total})
 
 
 def bank_reports(request):
@@ -344,7 +356,11 @@ def bank_report_download(request, month_year):
 
     font_style = xlwt.XFStyle()
 
-    rows = PayrollModel.objects.filter(month_year=month_year).values_list('employee_id__employee_personal_number', 'employee_id__first_name', 'employee_id__bank', 'employee_id__bank_account_number', 'net_salary')
+    rows = PayrollModel.objects.filter(month_year=month_year).values_list('employee_id__employee_personal_number',
+                                                                          'employee_id__first_name',
+                                                                          'employee_id__bank',
+                                                                          'employee_id__bank_account_number',
+                                                                          'net_salary')
 
     for row in rows:
         row_num += 1
