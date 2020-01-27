@@ -4,8 +4,6 @@
     <list default="true" id="82666ebb-ae5c-449d-9797-264a45c5e5b3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2f536026-2983-44c7-ad46-a4bc967faa72.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2f536026-2983-44c7-ad46-a4bc967faa72.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/payroll/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payroll/kra_report.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payroll/kra_report.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -168,7 +166,8 @@
       <workItem from="1579767386503" duration="1823000" />
       <workItem from="1579771357823" duration="3786000" />
       <workItem from="1579800530901" duration="8360000" />
-      <workItem from="1579824283764" duration="1007000" />
+      <workItem from="1579824283764" duration="1658000" />
+      <workItem from="1580111920589" duration="566000" />
     </task>
     <servers />
   </component>
