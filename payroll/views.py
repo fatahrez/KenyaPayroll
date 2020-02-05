@@ -215,8 +215,12 @@ def nssf_view(request):
 
 
 def nssf_report(request, month_year):
-
-    return render(request, 'payroll/nssf_report.html', {'month': month_year})
+    payroll = PayrollModel.objects.filter(month_year=month_year)
+    nssf_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('nssf_deduction'))
+    grosspay_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('gross_pay'))
+    return render(request, 'payroll/nssf_report.html', {'month': month_year, 'payroll': payroll,
+                                                        'nssf_total': nssf_total['nssf_deduction__sum'],
+                                                        'grosspay_total': grosspay_total['gross_pay__sum']})
 
 
 def kra_view(request):
