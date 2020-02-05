@@ -13,6 +13,7 @@ urlpatterns = [
     path('nssf/', views.nssf_view, name='nssf'),
     path('nssf/<str:month_year>/', views.nssf_report, name='nssfReport'),
     path('nhif/', views.nhif_view, name='nhif'),
+    path('nhif/<str:month_year>/', views.nhif_report, name='nhifReport'),
     path('bank/', views.bank_reports, name='bankReports'),
     path('bank/<str:month_year>/', views.bank_report, name='bankReport'),
     path('bank/<str:month_year>/download/', views.bank_report_download, name='bankReport'),
