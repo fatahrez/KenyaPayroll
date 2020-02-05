@@ -220,13 +220,17 @@ def kra_view(request):
 
 def kra_report(request, month_year):
     payroll = PayrollModel.objects.filter(month_year=month_year)
-    gross_pay_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('gross_pay')).values()
+    gross_pay_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('gross_pay'))['gross_pay__sum']
     nssf_contribution_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('nssf_deduction'))
-    tax_chargable = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('payee')).values()
+    tax_chargable = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('payee'))['payee__sum']
+    personal_relief = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('personal_relief'))
+    total_tax = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('total_tax'))['total_tax__sum']
     return render(request, 'payroll/kra_report.html', {'payroll': payroll, 'month': month_year,
                                                        'gross_pay_total': gross_pay_total,
-                                                       'nssf_deduction': nssf_contribution_total.values(),
-                                                       'tax_chargable': tax_chargable})
+                                                       'nssf_deduction': nssf_contribution_total['nssf_deduction__sum'],
+                                                       'tax_chargable': tax_chargable,
+                                                       'personal_relief': personal_relief['personal_relief__sum'],
+                                                       'total_tax': total_tax})
 
 
 def bank_reports(request):
