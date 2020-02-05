@@ -206,7 +206,8 @@ def employees(request):
 
 
 def nhif_view(request):
-    return render(request, 'payroll/nhif.html')
+    months = PayrollModel.objects.order_by('month_year').distinct('month_year')
+    return render(request, 'payroll/nhif.html', {'months': months})
 
 
 def nssf_view(request):
