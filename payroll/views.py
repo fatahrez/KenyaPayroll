@@ -220,13 +220,17 @@ def kra_view(request):
 
 def kra_report(request, month_year):
     payroll = PayrollModel.objects.filter(month_year=month_year)
-    gross_pay_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('gross_pay')).values()
+    gross_pay_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('gross_pay'))['gross_pay__sum']
     nssf_contribution_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('nssf_deduction'))
-    tax_chargable = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('payee')).values()
+    tax_chargable = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('payee'))['payee__sum']
+    personal_relief = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('personal_relief'))
+    total_tax = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('total_tax'))['total_tax__sum']
     return render(request, 'payroll/kra_report.html', {'payroll': payroll, 'month': month_year,
                                                        'gross_pay_total': gross_pay_total,
-                                                       'nssf_deduction': nssf_contribution_total.values(),
-                                                       'tax_chargable': tax_chargable})
+                                                       'nssf_deduction': nssf_contribution_total['nssf_deduction__sum'],
+                                                       'tax_chargable': tax_chargable,
+                                                       'personal_relief': personal_relief['personal_relief__sum'],
+                                                       'total_tax': total_tax})
 
 
 def bank_reports(request):
@@ -365,6 +369,47 @@ def bank_report_download(request, month_year):
                                                                           'employee_id__bank',
                                                                           'employee_id__bank_account_number',
                                                                           'net_salary')
+
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
+
+    return response
+
+
+def kra_report_download(request, month_year):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="kra_report.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('KRA Report')
+
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['Employee Pin', 'Employee Name', 'Total Cash', 'Total Gross Pay', 'NSSF Contribution', 'chargable pay',
+               'Tax Chargable', 'Personal Relief', 'P.A.Y.E Tax']
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+
+    font_style = xlwt.XFStyle()
+
+    rows = PayrollModel.objects.filter(month_year=month_year). \
+        distinct('employee_id').values_list('employee_id__kra_pin',
+                                            'employee_id__first_name',
+                                            'employee_id__payrollmodel__gross_pay',
+                                            'employee_id__payrollmodel__gross_pay',
+                                            'employee_id__payrollmodel__nssf_deduction',
+                                            'employee_id__payrollmodel__gross_pay',
+                                            'employee_id__payrollmodel__payee',
+                                            'employee_id__payrollmodel__personal_relief',
+                                            'employee_id__payrollmodel__total_tax')
 
     for row in rows:
         row_num += 1
