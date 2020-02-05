@@ -221,8 +221,12 @@ def kra_view(request):
 def kra_report(request, month_year):
     payroll = PayrollModel.objects.filter(month_year=month_year)
     gross_pay_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('gross_pay')).values()
+    nssf_contribution_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('nssf_deduction'))
+    tax_chargable = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('payee')).values()
     return render(request, 'payroll/kra_report.html', {'payroll': payroll, 'month': month_year,
-                                                       'gross_pay_total': gross_pay_total})
+                                                       'gross_pay_total': gross_pay_total,
+                                                       'nssf_deduction': nssf_contribution_total.values(),
+                                                       'tax_chargable': tax_chargable})
 
 
 def bank_reports(request):

@@ -4,7 +4,7 @@
 {% load bootstrap3 %}
 
 {% block content %}
-    <div class="container container-fluid">
+    <div class="container">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">KRA Report for {{ month }}</h1>
@@ -21,7 +21,7 @@
                     <th scope="col">Total Gross Pay</th>
                     <th scope="col">NSSF Contribution</th>
                     <th scope="col">Chargable Pay</th>
-                    <th scope="col">Tax Charged</th>
+                    <th scope="col">Tax Chargable</th>
                     <th scope="col">Personal Relief</th>
                     <th scope="col">P.A.Y.E Tax</th>
                 </tr>
@@ -45,7 +45,9 @@
                     <td></td>
                     <td>{{ gross_pay_total }}</td>
                     <td>{{ gross_pay_total }}</td>
-
+                    <td>{{ nssf_deduction }}</td>
+                    <td>{{ gross_pay_total }}</td>
+                    <td>{{ tax_chargable }}</td>
                 </tr>
             </tbody>
         </table>
