@@ -378,3 +378,42 @@ def bank_report_download(request, month_year):
     wb.save(response)
 
     return response
+
+
+def kra_report_download(request, month_year):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="kra_report.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('KRA Report')
+
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['Employee Pin', 'Employee Name', 'Total Cash', 'Total Gross Pay', 'NSSF Contribution', 'Tax Chargable', 'Personal Relief', 'P.A.Y.E Tax']
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+
+    font_style = xlwt.XFStyle()
+
+    rows = PayrollModel.objects.filter(month_year=month_year).values_list('employee_id__kra_pin',
+                                                                          'employee_id__first_name'+ 'employee_id__middle_name' + 'employee_id__last_name',
+                                                                          'employee_id__payrollmodel__gross_pay',
+                                                                          'employee_id__payrollmodel__gross_pay',
+                                                                          'employee_id__payrollmodel__nssf_deduction',
+                                                                          'employee_id__payrollmodel__gross_pay',
+                                                                          'employee_id__payrollmodel__payee',
+                                                                          'employee_id__payrollmodel__personal_relief',
+                                                                          'employee_id__payrollmodel__total_tax')
+
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
+
+    return response
