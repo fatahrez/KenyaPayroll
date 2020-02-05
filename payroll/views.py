@@ -212,7 +212,9 @@ def nhif_view(request):
 
 def nhif_report(request, month_year):
     payrolls = PayrollModel.objects.filter(month_year=month_year)
-    return render(request, 'payroll/nhif_report.html')
+    nhif_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('nhif_deduction'))
+    return render(request, 'payroll/nhif_report.html', {'month': month_year, 'payrolls': payrolls,
+                                                        'nhif_total': nhif_total['nhif_deduction__sum']})
 
 
 def nssf_view(request):
