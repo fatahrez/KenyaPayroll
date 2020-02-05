@@ -1,0 +1,50 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% load bootstrap3 %}
+
+{% block content %}
+        <div class="container container-fluid">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">NHIF Report for {{ month }}</h1>
+                <a href="download" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm"><i
+                        class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            </div>
+
+                    <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">PERSONAL NUMBER</th>
+                    <th scope="col">SURNAME</th>
+                    <th scope="col">OTHER NAMES</th>
+                    <th scope="col">ID NO</th>
+                    <th scope="col">KRA PIN</th>
+                    <th scope="col">NHIF NO</th>
+                    <th scope="col">AMOUNT</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for payroll in payrolls %}
+                <tr>
+                    <th scope="row">{{ payroll.employee_id.employee_personal_number }}</th>
+                    <td>{{ payroll.employee_id.middle_name }}</td>
+                    <td>{{ payroll.employee_id.first_name }} {{ payroll.employee_id.last_name }}</td>
+                    <td>{{ payroll.employee_id.national_id }}</td>
+                    <td>{{ payroll.employee_id.kra_pin }}</td>
+                    <td>{{ payroll.employee_id.nhif_no }}</td>
+                    <td>{{ payroll.nhif_deduction }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <th scope="row"><strong>Total</strong></th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><strong>{{ nhif_total }}</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+{% endblock %}
