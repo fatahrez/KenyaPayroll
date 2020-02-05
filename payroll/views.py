@@ -437,3 +437,82 @@ def kra_report_download(request, month_year):
     wb.save(response)
 
     return response
+
+
+def nhif_report_download(request, month_year):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="nhif_report.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('NHIF Report')
+
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['PERSONAL NUMBER', 'SURNAME', 'OTHER NAMES', 'ID NO', 'KRA PIN', 'NHIF NO',
+               'AMOUNT']
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+
+    font_style = xlwt.XFStyle()
+
+    rows = PayrollModel.objects.filter(month_year=month_year). \
+        distinct('employee_id').values_list('employee_id__employee_personal_number',
+                                            'employee_id__middle_name',
+                                            'employee_id__first_name',
+                                            'employee_id__national_id',
+                                            'employee_id__kra_pin',
+                                            'employee_id__nhif_no',
+                                            'employee_id__payrollmodel__nhif_deduction')
+
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
+
+    return response
+
+
+def nssf_report_download(request, month_year):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="nssf_report.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('NSSF Report')
+
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['PERSONAL NUMBER', 'SURNAME', 'OTHER NAMES', 'ID NO', 'KRA PIN', 'NSSF NO',
+               'GROSS PAY', 'NSSF DEDUCTION']
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+
+    font_style = xlwt.XFStyle()
+
+    rows = PayrollModel.objects.filter(month_year=month_year). \
+        distinct('employee_id').values_list('employee_id__employee_personal_number',
+                                            'employee_id__middle_name',
+                                            'employee_id__first_name',
+                                            'employee_id__national_id',
+                                            'employee_id__kra_pin',
+                                            'employee_id__nssf_no',
+                                            'employee_id__payrollmodel__gross_pay',
+                                            'employee_id__payrollmodel__nssf_deduction')
+
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
+
+    return response
