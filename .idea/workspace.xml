@@ -4,6 +4,8 @@
     <list default="true" id="82666ebb-ae5c-449d-9797-264a45c5e5b3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2f536026-2983-44c7-ad46-a4bc967faa72.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2f536026-2983-44c7-ad46-a4bc967faa72.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/payroll/kra_report.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payroll/kra_report.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +24,23 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Django default" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Django default" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Django default" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="payroll_kenya: database" type="162271b6:PgImplModel$Database" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
@@ -168,6 +186,11 @@
       <workItem from="1579800530901" duration="8360000" />
       <workItem from="1579824283764" duration="1658000" />
       <workItem from="1580111920589" duration="566000" />
+      <workItem from="1580150281343" duration="2452000" />
+      <workItem from="1580198374773" duration="594000" />
+      <workItem from="1580384754415" duration="1822000" />
+      <workItem from="1580840873422" duration="832000" />
+      <workItem from="1580881792822" duration="1661000" />
     </task>
     <servers />
   </component>

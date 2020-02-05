@@ -21,7 +21,7 @@
                     <th scope="col">Total Gross Pay</th>
                     <th scope="col">NSSF Contribution</th>
                     <th scope="col">Chargable Pay</th>
-                    <th scope="col">Tax Charged</th>
+                    <th scope="col">Tax Chargable</th>
                     <th scope="col">Personal Relief</th>
                     <th scope="col">P.A.Y.E Tax</th>
                 </tr>
@@ -45,7 +45,10 @@
                     <td></td>
                     <td>{{ gross_pay_total }}</td>
                     <td>{{ gross_pay_total }}</td>
-
+                    <td>{{ nssf_deduction }}</td>
+                    <td>{{ gross_pay_total }}</td>
+                    <td>{{ gross_pay_total }}</td>
+                    <td>{{ tax_chargable }}</td>
                 </tr>
             </tbody>
         </table>
