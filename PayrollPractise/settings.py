@@ -167,7 +167,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
 )
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # configuring the location for media
 MEDIA_URL = '/media/'
