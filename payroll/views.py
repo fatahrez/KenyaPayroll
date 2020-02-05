@@ -392,22 +392,24 @@ def kra_report_download(request, month_year):
     font_style = xlwt.XFStyle()
     font_style.font.bold = True
 
-    columns = ['Employee Pin', 'Employee Name', 'Total Cash', 'Total Gross Pay', 'NSSF Contribution', 'Tax Chargable', 'Personal Relief', 'P.A.Y.E Tax']
+    columns = ['Employee Pin', 'Employee Name', 'Total Cash', 'Total Gross Pay', 'NSSF Contribution', 'chargable pay',
+               'Tax Chargable', 'Personal Relief', 'P.A.Y.E Tax']
 
     for col_num in range(len(columns)):
         ws.write(row_num, col_num, columns[col_num], font_style)
 
     font_style = xlwt.XFStyle()
 
-    rows = PayrollModel.objects.filter(month_year=month_year).values_list('employee_id__kra_pin',
-                                                                          'employee_id__first_name'+ 'employee_id__middle_name' + 'employee_id__last_name',
-                                                                          'employee_id__payrollmodel__gross_pay',
-                                                                          'employee_id__payrollmodel__gross_pay',
-                                                                          'employee_id__payrollmodel__nssf_deduction',
-                                                                          'employee_id__payrollmodel__gross_pay',
-                                                                          'employee_id__payrollmodel__payee',
-                                                                          'employee_id__payrollmodel__personal_relief',
-                                                                          'employee_id__payrollmodel__total_tax')
+    rows = PayrollModel.objects.filter(month_year=month_year). \
+        distinct('employee_id').values_list('employee_id__kra_pin',
+                                            'employee_id__first_name',
+                                            'employee_id__payrollmodel__gross_pay',
+                                            'employee_id__payrollmodel__gross_pay',
+                                            'employee_id__payrollmodel__nssf_deduction',
+                                            'employee_id__payrollmodel__gross_pay',
+                                            'employee_id__payrollmodel__payee',
+                                            'employee_id__payrollmodel__personal_relief',
+                                            'employee_id__payrollmodel__total_tax')
 
     for row in rows:
         row_num += 1
