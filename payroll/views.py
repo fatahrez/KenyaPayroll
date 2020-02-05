@@ -210,7 +210,13 @@ def nhif_view(request):
 
 
 def nssf_view(request):
-    return render(request, 'payroll/nssf.html')
+    months = PayrollModel.objects.order_by('month_year').distinct('month_year')
+    return render(request, 'payroll/nssf.html', {'months': months})
+
+
+def nssf_report(request, month_year):
+
+    return render(request, 'payroll/nssf_report.html', {'month': month_year})
 
 
 def kra_view(request):

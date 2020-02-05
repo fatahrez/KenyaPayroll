@@ -11,6 +11,7 @@ urlpatterns = [
     path('kra/<str:month_year>/', views.kra_report, name='kraReport'),
     path('kra/<str:month_year>/download', views.kra_report_download, name='kraReportDownload'),
     path('nssf/', views.nssf_view, name='nssf'),
+    path('nssf/<str:month_year>/', views.nssf_report, name='nssfReport'),
     path('nhif/', views.nhif_view, name='nhif'),
     path('bank/', views.bank_reports, name='bankReports'),
     path('bank/<str:month_year>/', views.bank_report, name='bankReport'),
