@@ -53,7 +53,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='payrollmodel',
-            name='month',
+            name='monthyear',
             field=models.CharField(max_length=30, null=True),
         ),
     ]

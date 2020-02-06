@@ -14,7 +14,7 @@ class MonthSelectorWidget(widgets.MultiWidget):
     def __init__(self, attrs=None):
         # create choices for days, months, years
         _attrs = attrs or {}  # default class
-        _attrs['class'] = (_attrs.get('class', '') + ' w-month-year').strip()
+        _attrs['class'] = (_attrs.get('class', '') + ' w-monthyear-year').strip()
         _widgets = [widgets.Select(attrs=_attrs, choices=MONTHS.items())]
         _attrs['class'] += " w-year"
         _widgets.append(widgets.NumberInput(attrs=_attrs))
@@ -24,7 +24,7 @@ class MonthSelectorWidget(widgets.MultiWidget):
     def media(self):
         media = self._get_media()
         media.add_css({
-            'screen': (static('month/field/widget_month.css'),)
+            'screen': (static('monthyear/field/widget_month.css'),)
         })
         return media
 

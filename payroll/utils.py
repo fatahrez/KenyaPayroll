@@ -13,8 +13,8 @@ RE_DATE = re.compile(r'(\d{4})-(\d\d?)-(\d\d?)$')
 
 class MonthYearWidget(Widget):
     """
-    A Widget that splits date input into two <select> boxes for month and year,
-    with 'day' defaulting to the first of the month.
+    A Widget that splits date input into two <select> boxes for monthyear and year,
+    with 'day' defaulting to the first of the monthyear.
 
     Based on SelectDateWidget, in
 

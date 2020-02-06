@@ -9964,7 +9964,7 @@ function abstract() {
 
 /**
  * Currently supported unit string values.
- * @typedef {('millisecond'|'second'|'minute'|'hour'|'day'|'week'|'month'|'quarter'|'year')}
+ * @typedef {('millisecond'|'second'|'minute'|'hour'|'day'|'week'|'monthyear'|'quarter'|'year')}
  * @memberof Chart._adapters._date
  * @name Unit
  */
@@ -12983,8 +12983,8 @@ var defaultConfig$4 = {
 	time: {
 		parser: false, // false == a pattern string from https://momentjs.com/docs/#/parsing/string-format/ or a custom callback that converts its argument to a moment
 		format: false, // DEPRECATED false == date objects, moment object, callback or a pattern string from https://momentjs.com/docs/#/parsing/string-format/
-		unit: false, // false == automatic or override with week, month, year, etc.
-		round: false, // none, or override with week, month, year, etc.
+		unit: false, // false == automatic or override with week, monthyear, year, etc.
+		round: false, // none, or override with week, monthyear, year, etc.
 		displayFormat: false, // DEPRECATED
 		isoWeekday: false, // override week start day - see https://momentjs.com/docs/#/get-set/iso-weekday/
 		minUnit: 'millisecond',
@@ -13795,7 +13795,7 @@ var moment = createCommonjsModule(function (module, exports) {
         hh : '%d hours',
         d  : 'a day',
         dd : '%d days',
-        M  : 'a month',
+        M  : 'a monthyear',
         MM : '%d months',
         y  : 'a year',
         yy : '%d years'
@@ -13877,7 +13877,7 @@ var moment = createCommonjsModule(function (module, exports) {
     // token:    'M'
     // padded:   ['MM', 2]
     // ordinal:  'Mo'
-    // callback: function () { this.month() + 1 }
+    // callback: function () { this.monthyear() + 1 }
     function addFormatToken (token, padded, ordinal, callback) {
         var func = callback;
         if (typeof callback === 'string') {
@@ -13976,7 +13976,7 @@ var moment = createCommonjsModule(function (module, exports) {
 
     var matchTimestamp = /[+-]?\d+(\.\d{1,3})?/; // 123456789 123456789.123
 
-    // any word (or two) characters or numbers including two/three word month in arabic.
+    // any word (or two) characters or numbers including two/three word monthyear in arabic.
     // includes scottish gaelic two word and hyphenated months
     var matchWord = /[0-9]{0,256}['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFF07\uFF10-\uFFEF]{1,256}|[\u0600-\u06FF\/]{1,256}(\s*?[\u0600-\u06FF]{1,256}){1,2}/i;
 
@@ -14237,7 +14237,7 @@ var moment = createCommonjsModule(function (module, exports) {
 
     addParseToken(['MMM', 'MMMM'], function (input, array, config, token) {
         var month = config._locale.monthsParse(input, token, config._strict);
-        // if we didn't find a month name, mark the date as invalid.
+        // if we didn't find a monthyear name, mark the date as invalid.
         if (month != null) {
             array[MONTH] = month;
         } else {
@@ -14323,7 +14323,7 @@ var moment = createCommonjsModule(function (module, exports) {
         }
 
         // TODO: add sorting
-        // Sorting makes sure if one month (or abbr) is a prefix of another
+        // Sorting makes sure if one monthyear (or abbr) is a prefix of another
         // see sorting in computeMonthsParse
         for (i = 0; i < 12; i++) {
             // make the regex if we don't have it already
@@ -14443,7 +14443,7 @@ var moment = createCommonjsModule(function (module, exports) {
             mixedPieces.push(this.months(mom, ''));
             mixedPieces.push(this.monthsShort(mom, ''));
         }
-        // Sorting makes sure if one month (or abbr) is a prefix of another it
+        // Sorting makes sure if one monthyear (or abbr) is a prefix of another it
         // will match the longer piece.
         shortPieces.sort(cmpLenRev);
         longPieces.sort(cmpLenRev);
@@ -15369,7 +15369,7 @@ var moment = createCommonjsModule(function (module, exports) {
     // convert an array to a date.
     // the array should mirror the parameters below
     // note: all values past the year are optional and will default to the lowest possible value.
-    // [year, month, day , hour, minute, second, millisecond]
+    // [year, monthyear, day , hour, minute, second, millisecond]
     function configFromArray (config) {
         var i, date, input = [], currentDate, expectedWeekday, yearToUse;
 
@@ -15398,9 +15398,9 @@ var moment = createCommonjsModule(function (module, exports) {
         }
 
         // Default to current date.
-        // * if no year, month, day of month are given, default to today
-        // * if day of month is given, default month and year
-        // * if month is given, default only year
+        // * if no year, monthyear, day of monthyear are given, default to today
+        // * if day of monthyear is given, default monthyear and year
+        // * if monthyear is given, default only year
         // * if year is given, don't default anything
         for (i = 0; i < 3 && config._a[i] == null; ++i) {
             config._a[i] = input[i] = currentDate[i];
@@ -16622,17 +16622,17 @@ var moment = createCommonjsModule(function (module, exports) {
     function monthDiff (a, b) {
         // difference in months
         var wholeMonthDiff = ((b.year() - a.year()) * 12) + (b.month() - a.month()),
-            // b is in (anchor - 1 month, anchor + 1 month)
+            // b is in (anchor - 1 monthyear, anchor + 1 monthyear)
             anchor = a.clone().add(wholeMonthDiff, 'months'),
             anchor2, adjust;
 
         if (b - anchor < 0) {
             anchor2 = a.clone().add(wholeMonthDiff - 1, 'months');
-            // linear across the month
+            // linear across the monthyear
             adjust = (b - anchor) / (anchor - anchor2);
         } else {
             anchor2 = a.clone().add(wholeMonthDiff + 1, 'months');
-            // linear across the month
+            // linear across the monthyear
             adjust = (b - anchor) / (anchor2 - anchor);
         }
 
@@ -17316,7 +17316,7 @@ var moment = createCommonjsModule(function (module, exports) {
     proto.zoneAbbr = getZoneAbbr;
     proto.zoneName = getZoneName;
     proto.dates  = deprecate('dates accessor is deprecated. Use date instead.', getSetDayOfMonth);
-    proto.months = deprecate('months accessor is deprecated. Use month instead', getSetMonth);
+    proto.months = deprecate('months accessor is deprecated. Use monthyear instead', getSetMonth);
     proto.years  = deprecate('years accessor is deprecated. Use year instead', getSetYear);
     proto.zone   = deprecate('moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/', getSetZone);
     proto.isDSTShifted = deprecate('isDSTShifted is deprecated. See http://momentjs.com/guides/#/warnings/dst-shifted/ for more information', isDaylightSavingTimeShifted);
@@ -17674,7 +17674,7 @@ var moment = createCommonjsModule(function (module, exports) {
         s : 45,         // seconds to minute
         m : 45,         // minutes to hour
         h : 22,         // hours to day
-        d : 26,         // days to month
+        d : 26,         // days to monthyear
         M : 11          // months to year
     };
 
@@ -17765,7 +17765,7 @@ var moment = createCommonjsModule(function (module, exports) {
         //  * months bubble up until they become years
         // This is because there is no context-free conversion between hours and days
         // (think of clock changes)
-        // and also not between days and months (28-31 days per month)
+        // and also not between days and months (28-31 days per monthyear)
         if (!this.isValid()) {
             return this.localeData().invalidDate();
         }
@@ -17917,7 +17917,7 @@ var moment = createCommonjsModule(function (module, exports) {
         TIME_SECONDS: 'HH:mm:ss',                       // <input type="time" step="1" />
         TIME_MS: 'HH:mm:ss.SSS',                        // <input type="time" step="0.001" />
         WEEK: 'GGGG-[W]WW',                             // <input type="week" />
-        MONTH: 'YYYY-MM'                                // <input type="month" />
+        MONTH: 'YYYY-MM'                                // <input type="monthyear" />
     };
 
     return hooks;

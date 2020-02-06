@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RemoveField(
             model_name='payrollmodel',
-            name='month',
+            name='monthyear',
         ),
         migrations.AddField(
             model_name='payrollmodel',

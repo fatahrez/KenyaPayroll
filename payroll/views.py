@@ -213,7 +213,7 @@ def nhif_view(request):
 def nhif_report(request, month_year):
     payrolls = PayrollModel.objects.filter(month_year=month_year)
     nhif_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('nhif_deduction'))
-    return render(request, 'payroll/nhif_report.html', {'month': month_year, 'payrolls': payrolls,
+    return render(request, 'payroll/nhif_report.html', {'monthyear': month_year, 'payrolls': payrolls,
                                                         'nhif_total': nhif_total['nhif_deduction__sum']})
 
 
@@ -226,7 +226,7 @@ def nssf_report(request, month_year):
     payroll = PayrollModel.objects.filter(month_year=month_year)
     nssf_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('nssf_deduction'))
     grosspay_total = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('gross_pay'))
-    return render(request, 'payroll/nssf_report.html', {'month': month_year, 'payroll': payroll,
+    return render(request, 'payroll/nssf_report.html', {'monthyear': month_year, 'payroll': payroll,
                                                         'nssf_total': nssf_total['nssf_deduction__sum'],
                                                         'grosspay_total': grosspay_total['gross_pay__sum']})
 
@@ -243,7 +243,7 @@ def kra_report(request, month_year):
     tax_chargable = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('payee'))['payee__sum']
     personal_relief = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('personal_relief'))
     total_tax = PayrollModel.objects.filter(month_year=month_year).aggregate(Sum('total_tax'))['total_tax__sum']
-    return render(request, 'payroll/kra_report.html', {'payroll': payroll, 'month': month_year,
+    return render(request, 'payroll/kra_report.html', {'payroll': payroll, 'monthyear': month_year,
                                                        'gross_pay_total': gross_pay_total,
                                                        'nssf_deduction': nssf_contribution_total['nssf_deduction__sum'],
                                                        'tax_chargable': tax_chargable,
@@ -258,7 +258,7 @@ def bank_reports(request):
 
 def bank_report(request, month_year):
     payroll = PayrollModel.objects.filter(month_year=month_year)
-    return render(request, 'payroll/bank_report.html', {'payroll': payroll, 'month': month_year})
+    return render(request, 'payroll/bank_report.html', {'payroll': payroll, 'monthyear': month_year})
 
 
 def create_employee(request):
