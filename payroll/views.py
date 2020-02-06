@@ -183,11 +183,18 @@ def index(request):
     allowances = Allowance.objects.all()
     allowance_count = allowances.count()
 
+    kra_count = PayrollModel.objects.order_by('month_year').distinct('month_year').count()
+
+    nhif_count = PayrollModel.objects.order_by('month_year').distinct('month_year').count()
+
+    nssf_count = PayrollModel.objects.order_by('month_year').distinct('month_year').count()
+
     bank_report_count = PayrollModel.objects.order_by('month_year').distinct('month_year').count()
 
     return render(request, 'payroll/index.html',
                   {'employees_count': employees_count, 'allowance_count': allowance_count,
-                   'bank_report_count': bank_report_count})
+                   'bank_report_count': bank_report_count, 'kra_count': kra_count,
+                   'nhif_count': nhif_count, 'nssf_count': nssf_count})
 
 
 def employees(request):
