@@ -109,7 +109,10 @@
       <Owner>fatah</Owner>
       <IntrospectionStateNumber>5074</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|142744|142746|1
+      <Relations>sequence|table|142915|142917|1
+sequence|table|142891|142893|1
+sequence|table|142848|142850|1
+sequence|table|142744|142746|1
 sequence|table|142752|142754|1
 sequence|table|142780|142782|1
 sequence|table|142788|142790|1
@@ -117,9 +120,6 @@ sequence|table|142770|142772|1
 sequence|table|142762|142764|1
 sequence|table|142734|142736|1
 sequence|table|142723|142725|1
-sequence|table|142915|142917|1
-sequence|table|142891|142893|1
-sequence|table|142848|142850|1
 sequence|table|153797|153799|1
 sequence|table|153783|153785|1
 </Relations>
