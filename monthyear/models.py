@@ -11,7 +11,7 @@ from monthyear.util import string_type
 
 
 class MonthField(models.DateField):
-    description = "A specific month of a specific year."
+    description = "A specific monthyear of a specific year."
     widget = widgets.MonthSelectorWidget
 
     default_error_messages = {

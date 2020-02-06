@@ -3,8 +3,29 @@
   <component name="ChangeListManager">
     <list default="true" id="82666ebb-ae5c-449d-9797-264a45c5e5b3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monthyear/static/month/field/widget_month.css" beforeDir="false" afterPath="$PROJECT_DIR$/monthyear/static/month/field/widget_month.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/payroll/payslip_pdf_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/payroll/payslip_pdf_template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monthyear/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/monthyear/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monthyear/widgets.py" beforeDir="false" afterPath="$PROJECT_DIR$/monthyear/widgets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/migrations/0002_auto_20200107_0151.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/migrations/0002_auto_20200107_0151.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/migrations/0003_auto_20200107_0202.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/migrations/0003_auto_20200107_0202.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/migrations/0010_auto_20200114_0904.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/migrations/0010_auto_20200114_0904.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payroll/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/payroll/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/month/field/widget_month.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/monthyear/field/widget_month.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/theme/vendor/chart.js/Chart.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/theme/vendor/chart.js/Chart.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/theme/vendor/chart.js/Chart.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/theme/vendor/chart.js/Chart.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/theme/vendor/chart.js/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/theme/vendor/chart.js/Chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/admin/js/admin/DateTimeShortcuts.a9c6d180860b.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/admin/js/admin/DateTimeShortcuts.a9c6d180860b.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/admin/js/admin/DateTimeShortcuts.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/admin/js/admin/DateTimeShortcuts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/admin/js/calendar.aae57adab5f6.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/admin/js/calendar.aae57adab5f6.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/admin/js/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/admin/js/calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.1865b1cf5085.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.1865b1cf5085.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/theme/vendor/chart.js/Chart.7d513c368e70.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/theme/vendor/chart.js/Chart.7d513c368e70.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/theme/vendor/chart.js/Chart.bundle.8312509226ed.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/theme/vendor/chart.js/Chart.bundle.8312509226ed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/theme/vendor/chart.js/Chart.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/theme/vendor/chart.js/Chart.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/theme/vendor/chart.js/Chart.bundle.min.bd9843d1866f.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/theme/vendor/chart.js/Chart.bundle.min.bd9843d1866f.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/theme/vendor/chart.js/Chart.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/theme/vendor/chart.js/Chart.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/theme/vendor/chart.js/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/theme/vendor/chart.js/Chart.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -190,7 +211,7 @@
       <workItem from="1580384754415" duration="1822000" />
       <workItem from="1580840873422" duration="832000" />
       <workItem from="1580881792822" duration="6985000" />
-      <workItem from="1580961077085" duration="2535000" />
+      <workItem from="1580961077085" duration="3415000" />
     </task>
     <servers />
   </component>

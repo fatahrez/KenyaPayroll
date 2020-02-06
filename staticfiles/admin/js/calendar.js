@@ -51,7 +51,7 @@ depends on core.js for utility functions like removeChildren or quickElement
             }
             return days;
         },
-        draw: function(month, year, div_id, callback, selected) { // month = 1-12, year = 1-9999
+        draw: function(month, year, div_id, callback, selected) { // monthyear = 1-12, year = 1-9999
             var today = new Date();
             var todayDay = today.getDate();
             var todayMonth = today.getMonth() + 1;
@@ -93,7 +93,7 @@ depends on core.js for utility functions like removeChildren or quickElement
 
             var nonDayCell;
 
-            // Draw blanks before first of month
+            // Draw blanks before first of monthyear
             tableRow = quickElement('tr', tableBody);
             for (i = 0; i < startingPos; i++) {
                 nonDayCell = quickElement('td', tableRow, ' ');
@@ -108,7 +108,7 @@ depends on core.js for utility functions like removeChildren or quickElement
                 return onClick;
             }
 
-            // Draw days of month
+            // Draw days of monthyear
             var currentDay = 1;
             for (i = startingPos; currentDay <= days; i++) {
                 if (i % 7 === 0 && currentDay !== 1) {
@@ -134,7 +134,7 @@ depends on core.js for utility functions like removeChildren or quickElement
                 currentDay++;
             }
 
-            // Draw blanks after end of month (optional, but makes for valid code)
+            // Draw blanks after end of monthyear (optional, but makes for valid code)
             while (tableRow.childNodes.length < 7) {
                 nonDayCell = quickElement('td', tableRow, ' ');
                 nonDayCell.className = "nonday";
@@ -149,7 +149,7 @@ depends on core.js for utility functions like removeChildren or quickElement
         // div_id (string) is the ID of the element in which the calendar will
         //     be displayed
         // callback (string) is the name of a JavaScript function that will be
-        //     called with the parameters (year, month, day) when a day in the
+        //     called with the parameters (year, monthyear, day) when a day in the
         //     calendar is clicked
         this.div_id = div_id;
         this.callback = callback;

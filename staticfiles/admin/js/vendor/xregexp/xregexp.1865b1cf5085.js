@@ -296,7 +296,7 @@ XRegExp = XRegExp || (function (undef) {
  *
  * // With named capture and flag x
  * date = XRegExp('(?<year>  [0-9]{4}) -?  # year  \n\
- *                 (?<month> [0-9]{2}) -?  # month \n\
+ *                 (?<monthyear> [0-9]{2}) -?  # monthyear \n\
  *                 (?<day>   [0-9]{2})     # day   ', 'x');
  *
  * // Passing a regex object to copy it. The copy maintains special properties for named capture,

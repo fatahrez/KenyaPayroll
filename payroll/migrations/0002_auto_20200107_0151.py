@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             name='PayrollModel',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('month', models.DateField()),
+                ('monthyear', models.DateField()),
             ],
         ),
         migrations.AddField(

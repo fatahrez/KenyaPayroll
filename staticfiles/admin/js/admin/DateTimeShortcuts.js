@@ -356,7 +356,7 @@
             var inp = DateTimeShortcuts.calendarInputs[num];
 
             // Determine if the current value in the input has a valid date.
-            // If so, draw the calendar with that date's year and month.
+            // If so, draw the calendar with that date's year and monthyear.
             if (inp.value) {
                 var format = get_format('DATE_INPUT_FORMATS')[0];
                 var selected = inp.value.strptime(format);
