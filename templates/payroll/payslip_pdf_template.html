@@ -92,12 +92,15 @@
                   margin: 0 -3cm;
                   position: absolute;
                   width: 18cm; }
+          header {
+              background-image: url("/static/images/logo.jpg");
+          }
     </style>
   </head>
   <body>
     {% block content %}
         <header>
-            <img src="{% static "images/logo.jpg" %}" alt="Logo">
+{#            <img src="{% static "images/logo.jpg" %}" alt="Logo">#}
         </header>
         <table>
             <thead>
