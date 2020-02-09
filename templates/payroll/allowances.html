@@ -23,17 +23,15 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Allowances</h1>
-{#        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i#}
-{#                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>#}
+        <h1 class="h3 mb-0 text-gray-800" style="margin-left:30px">Allowances</h1>
     </div>
 
     <!-- Content Row -->
-    <div class="row">
+    <div class="row" style="margin-left:30px">
         <!-- page start-->
         <section class="panel">
             <header class="panel-heading" style="margin-bottom:5px">
-                <a href="{% url 'payroll:create_allowance' %}" style="color:white" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Add </a>
+                <a href="{% url 'payroll:create_allowance' %}" style="color:white; margin-bottom:20px" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Add </a>
             </header>
             <!--Modal: modalConfirmDelete-->
 {#            <div class="modal fade" id="add_employee" tabindex="-1" role="dialog"#}
@@ -70,11 +68,12 @@
 {#                </div>#}
 {#            </div>#}
             <!--Modal: modalConfirmDelete-->
-            <table class="table table-hover p-table   responsive" width="100%" id="checked">
+            <table class="table table-hover p-table   responsive" width="100%" id="allowances">
                 <thead>
                 <tr>
                     <th>Allowance</th>
                     <th>Amount</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -88,10 +87,7 @@
                     </td>
 
                     <td>
-                        <a href="{{ allowance.id }}" class="btn btn-primary btn-xs"><i
-                                class="fa fa-folder"></i> View
-                        </a>
-                        <a href="#" class="btn btn-info btn-xs"><i
+                        <a href="{% url 'payroll:edit_allowance' allowance.id %}" class="btn btn-info btn-xs"><i
                                 class="fa fa-pencil"></i> Edit </a>
                         <a role="button" style="color:white" class="btn btn-danger btn-xs" data-toggle="modal"
                            data-target="#modalConfirm"><i class="fa fa-trash-o"></i> Delete </a>
@@ -110,7 +106,7 @@
 
                                     <!--Footer-->
                                     <div class="modal-footer flex-center" style="text-align:center">
-                                        <a href="#" class="btn  btn-success">Yes</a>
+                                        <a href="{% url 'payroll:delete_allowance' allowance.id %}" class="btn  btn-success">Yes</a>
                                         <a type="button" class="btn  btn-danger waves-effect"
                                            data-dismiss="modal">No</a>
                                     </div>

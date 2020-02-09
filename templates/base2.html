@@ -20,12 +20,13 @@
     <link href="{% static 'theme/css/sb-admin-2.min.css'  %}" rel="stylesheet">
     <link href="{% static 'css/app.css'  %}" rel="stylesheet">
 
-    <!-- Tempus Dominus Bootstrap 4 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script>
+    <link href="{% static 'jquerui/jquery-ui.css' %}" rel='stylesheet' type='text/css'/>
 
     <!-- Moment.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js" integrity="sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"
+            integrity="sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=" crossorigin="anonymous"></script>
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel='stylesheet' type='text/css'/>
+
 </head>
 
 <body id="page-top">
@@ -170,7 +171,10 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="{% static 'theme/vendor/jquery/jquery.min.js'  %}"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="{% static 'jquerui/jquery-ui.js'  %}"></script>
     <script src="{% static 'theme/vendor/bootstrap/js/bootstrap.bundle.min.js'  %}"></script>
+
 
     <!-- Core plugin JavaScript-->
     <script src="{% static 'theme/vendor/jquery-easing/jquery.easing.min.js'  %}"></script>
@@ -178,12 +182,30 @@
     <!-- Custom scripts for all pages-->
     <script src="{% static 'theme/js/sb-admin-2.min.js'  %}"></script>
 
-    <!-- Page level plugins -->
-    <script src="{% static 'theme/vendor/chart.js/Chart.min.js'  %}"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="{% static 'theme/js/demo/chart-area-demo.js'  %}"></script>
-    <script src="{% static 'theme/js/demo/chart-pie-demo.js'  %}"></script>
+    <script>
+      $(function() {
+        $( ".datepicker" ).datepicker({
+          changeMonth: true,
+          changeYear: true,
+          maxDate: 0
+          // You can put more options here.
+
+        });
+      });
+
+    </script>
+    <script>
+     $(document).ready(function() {
+        $('#employees').DataTable();
+    });
+
+    </script>
+    <script>
+     $(document).ready(function() {
+        $('#allowances').DataTable();
+    });
+    </script>
 </div>
 
 </body>

@@ -270,11 +270,13 @@ def bank_report(request, month_year):
 
 def create_employee(request):
     if request.method == 'POST':
-        form = EmployeeForm(request.POST)
-
+        form = EmployeeForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/employees')
+            messages.success(request, "Employee added successfully")
+            return redirect('payroll:employees')
+        else:
+            messages.error(request, "Error adding employee")
 
     else:
         form = EmployeeForm()
@@ -334,12 +336,40 @@ def create_allowance(request):
 
         if form.is_valid():
             form.save()
-
+            messages.success(request, "Allowance added successfully")
             return HttpResponseRedirect('/allowances')
+        else:
+            messages.error(request, "Error adding allowance")
     else:
         form = AllowanceForm()
 
     return render(request, 'payroll/allowance.html', {'form': form})
+
+
+def edit_allowance(request, allowance_id):
+    allowance = get_object_or_404(Allowance, id=allowance_id)
+    if request.method == 'POST':
+        form = AllowanceForm(request.POST, instance=allowance)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Allowance updated successfully")
+            return HttpResponseRedirect('/allowances')
+        else:
+            messages.error(request, "Error updating allowance")
+    else:
+        form = AllowanceForm(instance=allowance)
+
+    return render(request, 'payroll/edit_allowance.html', {'form': form})
+
+
+def delete_allowance(request, allowance_id):
+    allowance = get_object_or_404(Allowance, id=allowance_id)
+    allowance.delete()
+    messages.success(request, "Allowance deleted successfully")
+    return HttpResponseRedirect('/allowances')
+
+
 
 
 def all_alllowances(request):
@@ -357,11 +387,16 @@ def employee_update(request, employee_id):
     employee = EmployeeModel.objects.get(id=employee_id)
 
     if request.method == 'POST':
-        form = EmployeeForm(request.POST, instance=employee)
+        form = EmployeeForm(request.POST, instance=employee, files=request.FILES)
         if form.is_valid():
             form.save()
+            messages.success(request, "employee updated successfully")
             return redirect("/employees")
-    return render(request, 'employee_update_form.html', {'employee': employee})
+        else:
+            messages.error(request, "error updating the employee")
+    else:
+        form = EmployeeForm(instance=employee)
+    return render(request, 'payroll/employee_update_form.html', {'employee': employee, 'employee_form': form})
 
 
 def delete_employee(request, employee_id):
