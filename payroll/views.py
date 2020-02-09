@@ -41,7 +41,7 @@ class EmployeePayroll:
 
     def calculate_nssf(self):
         # Use old format instead of new
-        nssf = 400
+        nssf = 200
         self.nssf_deduction = nssf
         return nssf
         # if 0 < self.gross_salary <= 6000:
