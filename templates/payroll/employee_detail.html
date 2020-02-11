@@ -1,47 +1,48 @@
 {% extends 'base2.html' %}
 {% load bootstrap4 %}
+{% load static %}
 
 {% block content %}
-    <div class="employeeDetail">
+<div class="">
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-md-6">
+                <span>
+                  <img src="{% if employee.passport_photo %}{{employee.passport_photo.url}}{% else %}{% static 'images/no_image.png' %}{% endif %}"
+                       WIDTH="400" HEIGHT="400"/>
+                </span>
+            </div>
 
-  <div class="container p-5">
-    <div class="row">
+            <div class="col-md-6">
 
-      <div class="col-md-6 text-center">
-        <span>
-          <img src="{{employee.passport_photo}}"/>
-        </span>
+                <div class="content text-capitalize">
+                    <h1>{{employee.first_name}}</h1>
+                    <h4>{{ employee.middle_name }} {{ employee.last_name }}
+                        <small class="ml-3">( {{employee.employee_email}} )</small>
+                    </h4>
+                    <hr>
+                    <span><strong>Status -</strong> {{ employee.get_residential_status_display }} </span><br>
+                    <span><strong>Bank -</strong> {{ employee.bank }} </span>
+                    <br>
+                    <br>
+                    <p><strong>Job Title</strong></p>
+                    <p> {{employee.job_title}}</p>
+                    <br>
+                    <a href="payroll" class="btn btn-outline-info">Get Payroll</a>
 
-      </div>
+                    <!-- <div class="row">
+                    <div class="col-md-6">
+                      <a href="tel:+254789268466">Call for vet</a><br>
+                    </div>
+                    <div class="col-md-6">
+                      <button class="btn btn-outline-success" (click)="submitRequest()">Request this vet</button>
+                    </div>
+                  </div> -->
+                </div>
 
-      <div class="col-md-6">
+            </div>
 
-        <div class="content text-capitalize">
-          <h1>{{employee.first_name}}</h1>
-          <h4>{{ employee.middle_name }} {{ employee.last_name }} <small class="ml-3">( {{employee.employee_email}} )</small></h4>
-          <hr>
-          <span><strong>Status -</strong> {{ employee.get_residential_status_display }} </span><br>
-          <span><strong>Bank -</strong> {{ employee.bank }} </span>
-          <br>
-          <br>
-          <p><strong>Job Title</strong></p>
-          <p> {{employee.job_title}}</p>
-          <br>
-          <a href="payroll" class="btn btn-outline-info">Get Payroll</a>
-
-          <!-- <div class="row">
-          <div class="col-md-6">
-            <a href="tel:+254789268466">Call for vet</a><br>
-          </div>
-          <div class="col-md-6">
-            <button class="btn btn-outline-success" (click)="submitRequest()">Request this vet</button>
-          </div>
-        </div> -->
         </div>
-
-      </div>
-
     </div>
-  </div>
 </div>
 {% endblock %}
