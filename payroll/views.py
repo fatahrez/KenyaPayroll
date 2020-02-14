@@ -129,7 +129,7 @@ class EmployeePayroll:
             return nhif
 
     def calculate_taxable_income(self):
-        nti = self.gross_salary - self.nssf_deduction
+        nti = self.gross_salary
         self.taxable_income = nti
         return nti
 
@@ -170,7 +170,7 @@ class EmployeePayroll:
         return tax_payable
 
     def calculate_net_salary(self):
-        net_sal = self.taxable_income - (self.nhif_deduction + self.total_tax_payable)
+        net_sal = self.gross_salary - (self.total_tax_payable + self.nhif_deduction + self.nssf_deduction)
         self.net_salary = net_sal
         return net_sal
 
