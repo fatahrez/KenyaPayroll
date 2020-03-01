@@ -417,7 +417,7 @@ def bank_report_download(request, month_year):
     font_style = xlwt.XFStyle()
     font_style.font.bold = True
 
-    columns = ['EmpNo', 'EmpName', 'Bank Name', 'Account No.', 'Net Pay', ]
+    columns = ['EmpNo', 'Emp First_Name', 'Middle Name', 'Last Name', 'Bank Name', 'Account No.', 'Net Pay', ]
 
     for col_num in range(len(columns)):
         ws.write(row_num, col_num, columns[col_num], font_style)
@@ -426,6 +426,8 @@ def bank_report_download(request, month_year):
 
     rows = PayrollModel.objects.filter(month_year=month_year).values_list('employee_id__employee_personal_number',
                                                                           'employee_id__first_name',
+                                                                          'employee_id__middle_name',
+                                                                          'employee_id__last_name',
                                                                           'employee_id__bank',
                                                                           'employee_id__bank_account_number',
                                                                           'net_salary')
