@@ -320,7 +320,7 @@ def employee_payslip_pdf(request, employee_id, month_year):
     pre_total = payroll.first().net_salary - payroll.first().nhif_deduction
     html_string = render_to_string('payroll/payslip_pdf_template.html', {'payroll': payroll.first()})
 
-    html = HTML(string=html_string).write_pdf(target='/tmp/mypayslip.pdf')
+    html = HTML(string=html_string, base_url=request.build_absolute_uri()).write_pdf(target='/tmp/mypayslip.pdf')
 
     fs = FileSystemStorage('/tmp')
     with fs.open('mypayslip.pdf') as pdf:
