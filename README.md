@@ -1,4 +1,4 @@
-# \[ 🚧 Work in progress 👷‍♀️⛏👷🔧️👷🔧 🚧 \] 
+# \[ Kenya Payroll \] 
 
 KenyaPayroll is web systen that helps employers manage employee personal records and Payroll details. KenyaPayroll features include Adding new employees and storing their information. Editing and Deleting Employee information. Creating allowances for employees and editing allowance amount. The system generates Payslip for employees. It also generate Tax reports for KRA, NSSF and NHIF.
 
